@@ -2,10 +2,13 @@ source 'https://rubygems.org'
 
 gem 'rails_12factor', group: :production
 
-gem 'sqlite3', group: :development
+group :development, :test do
+  gem 'sqlite3'
+end
 
-gem 'pg', group: :production
-
+group :production do
+  gem 'pg'
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
