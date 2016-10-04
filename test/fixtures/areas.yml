@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  region: MyString
+  zone: 1
+  cost: 1
+  description: MyString
+  transport: 1
+  nightlife: 1
+  food: 1
+  green: 1
+
+two:
+  name: MyString
+  region: MyString
+  zone: 1
+  cost: 1
+  description: MyString
+  transport: 1
+  nightlife: 1
+  food: 1
+  green: 1

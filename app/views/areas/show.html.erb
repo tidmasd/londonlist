@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @area.name %>
+</p>
+
+<p>
+  <strong>Region:</strong>
+  <%= @area.region %>
+</p>
+
+<p>
+  <strong>Zone:</strong>
+  <%= @area.zone %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @area.cost %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @area.description %>
+</p>
+
+<p>
+  <strong>Transport:</strong>
+  <%= @area.transport %>
+</p>
+
+<p>
+  <strong>Nightlife:</strong>
+  <%= @area.nightlife %>
+</p>
+
+<p>
+  <strong>Food:</strong>
+  <%= @area.food %>
+</p>
+
+<p>
+  <strong>Green:</strong>
+  <%= @area.green %>
+</p>
+
+<%= link_to 'Edit', edit_area_path(@area) %> |
+<%= link_to 'Back', areas_path %>
