@@ -1,43 +1,73 @@
-<p id="notice"><%= notice %></p>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron" style="background-color:#3498db;color:#FFF;font-weight:bold">
+      <div class="container">
 
-<h1>Listing Areas</h1>
+        <div class="row">
+          <div class="col-sm-12">
+               <p style="diplay:inline;text-align:center;font-size:1em;font-weight:bold;letter-spacing:1px;">The best places to live and work in London. Join our <img src="https://cdn0.iconfinder.com/data/icons/picons-social/57/54-slack-32.png" style="color:#FFF" height="20px !important"><a id="hyper" href="chat.html">Slack community*</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<table class="table table-hover table-condensed">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Region</th>
-      <th>Zone</th>
-      <th>Cost</th>
-      <th>Description</th>
-      <th>Transport</th>
-      <th>Nightlife</th>
-      <th>Food</th>
-      <th>Green</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  
+    <div class="row">
+      <% @areas.each do |area| %>
+            
+            <%= link_to area do %>
+            <div class="col-md-4">
+                <div class="area-tile">
+                  <div class="attr top-left">Zone <%= area.zone %></div>
+                  <div class="attr top-right">£<%= area.cost %> / m</div>
+                  <div class="attr area-title"><span class="title"><%= area.name %></span></br><span class="sub-title"><%= area.region %></span></div>
+                </div>
+            </div>
+            <% end %>
+              
+      <% end %>
+    </div>
+      <!-- <table class="table table-hover table-condensed">
+        <thead>
+          <tr>
+            <th class="col-md-2">Name</th>
+            <th class="col-md-1">Region</th>
+            <th class="col-md-4">Zone</th>
+            <th class="col-md-">Cost</th>
+            <th>Description</th>
+            <th class="col-md-1">Transport</th>
+            <th class="col-md-1">Nightlife</th>
+            <th class="col-md-1">Food</th>
+            <th class="col-md-1">Green</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @areas.each do |area| %>
-      <tr>
-        <td><%= area.name %></td>
-        <td><%= area.region %></td>
-        <td><%= area.zone %></td>
-        <td><%= area.cost %></td>
-        <td><%= area.description %></td>
-        <td><%= area.transport %></td>
-        <td><%= area.nightlife %></td>
-        <td><%= area.food %></td>
-        <td><%= area.green %></td>
-        <td><%= link_to 'Show', area %></td>
-        <td><%= link_to 'Edit', edit_area_path(area) %></td>
-        <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @areas.each do |area| %>
+            <tr>
+              <td><%= area.name %></td>
+              <td><%= area.region %></td>
+              <td><%= area.zone %></td>
+              <td><%= area.cost %></td>
+              <td><%= area.description %></td>
+              <td><%= area.transport %></td>
+              <td><%= area.nightlife %></td>
+              <td><%= area.food %></td>
+              <td><%= area.green %></td>
+              <td><%= link_to 'Show', area %></td>
+              <td><%= link_to 'Edit', edit_area_path(area) %></td>
+              <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table> -->
 
 <br>
 
+<!--
+
 <%= link_to 'New Area', new_area_path %>
+
+-->

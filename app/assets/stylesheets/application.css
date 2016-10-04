@@ -14,6 +14,277 @@
  *= require_self
  */
 
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+#container {
+  overflow: hidden;
+  height: 400px;
+  background: #edeae8;
+  position: relative;
+}
+
+video {
+  position: absolute;
+  
+  /* Vertical and Horizontal center*/
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
 body {
-	padding-top:70px;
+	background-color: #FBFBFB;
+	padding-top:60px;
+}
+.navbar {
+	background-color: #FFF !important;
+	height:60px;
+	border-bottom: 1px solid #e3e3e3;
+	margin-bottom:0;
+}
+
+#navbar {
+	height: 60px;
+	margin-bottom:0;
+}
+
+.nav {
+	font-size: 1em;
+	color:#e3e3e3;
+	font-weight: bold;
+}
+
+.nav a {
+	color:#a8a4a0;
+}
+
+.nav a:hover {
+	border-bottom: 2px solid #3498db;
+	background-color: transparent;
+}
+
+tr td:nth-child(2), tr td:nth-child(3) {
+	color:#6a6b6d;
+}
+
+th {
+	text-align: center;
+}
+
+#londonlist-cost {
+	border: 2px solid #6DC5FF;
+	border-radius: 4px;
+	padding:3px 10px;
+}
+
+#londonlist-cost:hover {
+	border: 2px solid #6DC5FF;
+	background-color: #6DC5FF;
+	border-radius: 4px;
+	padding:3px 10px;
+	color:#FFF;
+}
+
+#londonlist-costup {
+	border: 2px solid #FF5859;
+	border-radius: 4px;
+	padding:3px 10px;
+}
+
+#londonlist-costup:hover {
+	border: 2px solid #FF5859;
+	background-color: #FF5859;
+	border-radius: 4px;
+	padding:3px 10px;
+	color:#FFF;
+}
+
+#londonlist-costdown {
+	border: 2px solid #2ecc71;
+	border-radius: 4px;
+	padding:3px 10px;
+}
+
+#londonlist-costdown:hover {
+	border: 2px solid #2ecc71;
+	background-color: #2ecc71;
+	border-radius: 4px;
+	padding:3px 10px;
+	color:#FFF;
+}
+
+.jumbotron {
+	padding:20px;
+}
+
+.jumbotron p {
+	margin-bottom: 0 !important;
+}
+
+a:hover {
+	background-color: transparent;
+}
+
+.email-form {
+	background:transparent;
+	border:2px solid #FFF;
+}
+
+.form-control::-webkit-input-placeholder { color: white; }
+.form-control:-moz-placeholder { color: white; }
+.form-control::-moz-placeholder { color: white; }
+.form-control:-ms-input-placeholder { color: white; }
+
+.email-form:hover, .email-form:focus {
+	background:#FFF;
+}
+
+tr {
+	height:60px;
+}
+
+.filter-block button {
+	margin-bottom:10px;
+}
+
+.btn-filter, .btn-filters {
+	background:transparent;
+	border: 1px solid #a8a4a0;
+	text-transform: uppercase;
+	color: #a8a4a0;
+	font-size: 0.8em;
+}
+
+.btn-filter {
+	width:100%;
+	padding:15px;
+}
+
+.btn-filters {
+	padding: 15px;
+}
+
+.btn-filter:hover, .btn-filters:hover, .btn-filter:focus, .btn-filters:focus {
+	background:#2980B9;
+	color:#FFF;
+	font-weight: bold;
+	border: 1px solid #2980B9;
+}
+
+.btn-group, .btn-group1 {
+	width:100%;
+}
+
+.btn-group button {
+	width:33.3%;
+}
+
+.btn-group1 button {
+	width:49.3%;
+}
+
+#hyper {
+	color:#000;
+}
+
+#hyper:hover {
+	text-decoration: none;
+	color:#FFF;
+	border-bottom: 2px solid #FFF;
+}
+
+.twitter-follow-button {
+ 	position: relative;
+    height: 20px;
+    padding: 1px 8px 1px 6px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    background-color: #1b95e0;
+    border-radius: 3px;
+    box-sizing: border-box;
+ }
+
+.table > tbody > tr > td {
+     vertical-align: middle;
+}
+
+.table > tbody > tr > th {
+     vertical-align: middle;
+}
+
+tr {
+    background: transparent !important;
+}
+
+#example_wrapper .row:nth-child(1) {
+	display:none;
+}
+
+tr img {
+	border-radius: 6px;
+}
+
+.area-tile {
+	background-image: url('http://www.fluidnetwork.co.uk/gfx/venues/2131/the-artesian-well-bar-club-clapham-photos-01.jpg');
+	height:250px;
+	width:100%;
+	padding:5px;
+	text-align: center;
+	margin-bottom:40px;
+}
+
+.area-tile:hover {
+	opacity: 0.5;
+}
+
+.area-title {
+	top:50%;
+	left:50%;
+	position:absolute;
+  	transform: translate(-50%, -50%);
+  	height: 20%;
+}
+
+.title {
+	font-size: 1.6em;
+}
+.sub-title {
+	font-size:1em !important;
+	font-weight: normal;
+}
+
+.attr {
+	font-weight:bold;
+	color:#FFF;
+}
+
+.top-left {
+	padding:15px 30px;
+	top:0;
+	left:0;
+	position:absolute;
+}
+
+.top-right {
+	padding:15px 30px;
+	top:0;
+	right:0;
+	position:absolute;
+}
+
+.bottom-left {
+	padding:15px 30px;
+	bottom:0;
+	left:0;
+	position:absolute;
 }

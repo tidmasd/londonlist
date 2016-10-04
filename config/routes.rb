@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :areas
 
-  get 'pages/about'
+  get '/about' => 'pages#about'
 
-  get 'pages/chat'
+  get '/chat' => 'pages#chat'
 
   root 'areas#index'
 

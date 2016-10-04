@@ -6,11 +6,14 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/bootstrap' %>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
+
 <body>
 
 <%= render 'layouts/navbar' %>
 <%= yield %>
 <%= render 'layouts/footer' %>
+
 </body>
 </html>
