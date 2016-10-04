@@ -42,14 +42,18 @@ video {
    ========================================================================== */
 
 body {
-	background-color: #FBFBFB;
+	background-color: #FBFBFB !important;
 	padding-top:60px;
 }
 .navbar {
-	background-color: #FFF !important;
+	background-color: #FFF;
 	height:60px;
 	border-bottom: 1px solid #e3e3e3;
 	margin-bottom:0;
+}
+
+nav.navbar.navbar-fixed-top {
+	border-bottom: 1px solid #e3e3e3;
 }
 
 #navbar {

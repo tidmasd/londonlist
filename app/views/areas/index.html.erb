@@ -12,12 +12,11 @@
 
 <div class="container">
   <p id="notice"><%= notice %></p>
-  
     <div class="row">
       <% @areas.each do |area| %>
             
             <%= link_to area do %>
-            <div class="col-md-4">
+            <div class="col-md-4 col-xs-6">
                 <div class="area-tile">
                   <div class="attr top-left">Zone <%= area.zone %></div>
                   <div class="attr top-right">£<%= area.cost %> / m</div>

@@ -1,49 +1,69 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @area.name %>
-</p>
 
-<p>
-  <strong>Region:</strong>
-  <%= @area.region %>
-</p>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container" style="text-align:center;">
 
-<p>
-  <strong>Zone:</strong>
-  <%= @area.zone %>
-</p>
+        <div class="row">
+          <div class="col-sm-12">
+               <p><%= @area.name %></p>
+               <p><%= @area.region %></p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Cost:</strong>
-  <%= @area.cost %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @area.description %>
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <p><%= @area.description %></p>
+            <%= @area.zone %>
+            <%= @area.cost %>
+        </div>
 
-<p>
-  <strong>Transport:</strong>
-  <%= @area.transport %>
-</p>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Getting Around:</p>
+                    <p>Drinks & Nightlife:</p>
+                    <p>Food Scene:</p>
+                    <p>Parks & Nature:</p>
+                </div>
+                <div class="col-md-6">
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @area.transport %>" aria-valuemin="0" aria-valuemax="5">
+                        <span class="sr-only"><%= @area.transport %></span>
+                      </div>
+                    </div>
 
-<p>
-  <strong>Nightlife:</strong>
-  <%= @area.nightlife %>
-</p>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @area.nightlife %>" aria-valuemin="0" aria-valuemax="5">
+                        <span class="sr-only"><%= @area.nightlife %></span>
+                      </div>
+                    </div>
 
-<p>
-  <strong>Food:</strong>
-  <%= @area.food %>
-</p>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @area.food %>" aria-valuemin="0" aria-valuemax="5">
+                        <span class="sr-only"><%= @area.food %></span>
+                      </div>
+                    </div>
 
-<p>
-  <strong>Green:</strong>
-  <%= @area.green %>
-</p>
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @area.green %>" aria-valuemin="0" aria-valuemax="5">
+                        <span class="sr-only"><%= @area.green %></span>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<hr>
+
 
 <%= link_to 'Edit', edit_area_path(@area) %> |
 <%= link_to 'Back', areas_path %>
+
+</div>
