@@ -15,17 +15,16 @@
 
     <div class="row">
         <div class="col-md-4">
-            <a class="btn btn-filter" onclick="addURL(this)" href="/areas?region=North&">North</a>
-            <a class="btn btn-filter" onclick="addURL(this)" href="/areas?region=East&">East</a>
-            <a class="btn btn-filter" onclick="addURL(this)" href="/areas?region=South&">South</a>
-            <a class="btn btn-filter" onclick="addURL(this)" href="/areas?region=West&">West</a>
-            <a class="btn btn-filter" onclick="addURL(this)" href="/areas">Reset Filters</a>
+            <a class="btn btn-filter" onclick="myUrl('region=North')">North</a>
+            <a class="btn btn-filter" onclick="myUrl('region=East')">East</a>
+            <a class="btn btn-filter" onclick="myUrl('region=South')">South</a>
+            <a class="btn btn-filter" onclick="myUrl('region=West')">West</a>
         </div>
         <div class="col-md-4">
-            <a class="btn btn-filter" onclick="addURL(this)" href="/areas?zone=1&">1</a>
-            <a class="btn btn-filter" onclick="addURL(this)" href="/areas?zone=2&">2</a>
-            <a class="btn btn-filter" onclick="addURL(this)" href="/areas?zone=3&">3</a>
-            <a class="btn btn-filter" onclick="addURL(this)" href="/areas?zone=4&">4</a>
+            <a class="btn btn-filter" onclick="myUrl('zone=1')">1</a>
+            <a class="btn btn-filter" onclick="myUrl('zone=2')">2</a>
+            <a class="btn btn-filter" onclick="myUrl('zone=3')">3</a>
+            <a class="btn btn-filter" onclick="myUrl('zone=4')">4</a>
         </div>
     </div>
    
@@ -40,7 +39,7 @@
             <%= link_to area do %>
             <div class="col-md-4 col-xs-6">
 
-                <div class="area-tile" id="diva_id" onmouseover="SwapDivs('diva_id','divb_id')" style="display:block;">
+                <div class="area-tile" id="diva_id" onmouseover="SwapDivs('diva_id','divb_id')" style="display:block;background-image:url('<%= area.image.url %>');background-size:100%;">
                       <div class="attr top-left">Zone <%= area.zone %></div>
                       <div class="attr top-right">£<%= area.cost %> / m</div>
                       <div class="attr area-title"><span class="title"><%= area.name %></span></br><span class="sub-title"><%= area.region %></span></div>
@@ -114,16 +113,43 @@
 <%= link_to 'New Area', new_area_path %>
   
 <!-- the JavaScript -->
-// <script type="text/javascript">
-// function SwapDivs(da,db) {
-// var d = document.getElementById(da);
-// if( d.style.display == "block" ) {
-//    d.style.display = "none";
-//    document.getElementById(db).style.display = "block";
-//    }
-// else {
-//    d.style.display = "block";
-//    document.getElementById(db).style.display = "none";
-//    }
-// }
-// </script>
+<script type="text/javascript">
+
+  var url = document.location.href;
+
+  function myUrl(value) {
+    // console.log(url);
+    if (url) {
+      if (url.indexOf(value)  != -1) {
+        var place = url.indexOf(value);
+        var length = value.length;
+        url = url.split("");
+        // console.log(url);
+        url.splice(place, length);
+        url = url.join("");
+      }
+      else {
+        // adds value if URL doesn't contain it already
+        if (url.indexOf('?') == -1) {
+          console.log('has ?');
+          url = url + "?" + value;
+        }
+        else {
+          if (url.indexOf('&') == -1) {
+            console.log('has&');
+            url = url + "&" + value;
+          }
+          else {
+            url = url + value;
+          }  
+        }
+      }
+    }
+    else {
+      // if there is no URL then it sets the URL to value=thing passed in from button
+      url = value;
+    }
+    document.location = url;
+  }
+
+</script>
