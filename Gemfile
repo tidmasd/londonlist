@@ -59,3 +59,4 @@ gem 'net-ssh'
 gem 'carrierwave', github:'carrierwaveuploader/carrierwave' 
 
 gem 'figaro'
+gem "mini_magick"
