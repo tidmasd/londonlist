@@ -4,7 +4,11 @@ class AreasController < ApplicationController
   # GET /areas
   # GET /areas.json
   def index
-    @areas = Area.all
+       @areas = Area.where(nil) #creates an anonymous scope
+       @areas = @areas.region(params[:region]) if params[:region].present?
+       @areas = @areas.zone(params[:zone]) if params[:zone].present?
+     # else
+     #   @areas = Area.all
   end
 
   # GET /areas/1

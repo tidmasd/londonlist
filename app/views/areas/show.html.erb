@@ -3,7 +3,7 @@
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <div class="container" style="text-align:center;">
+      <div class="container" style="text-align:center">
 
         <div class="row">
           <div class="col-sm-12">
@@ -23,42 +23,61 @@
             <%= @area.cost %>
         </div>
 
+
+
         <div class="col-md-4">
             <div class="row">
-                <div class="col-md-6">
-                    <p>Getting Around:</p>
-                    <p>Drinks & Nightlife:</p>
-                    <p>Food Scene:</p>
-                    <p>Parks & Nature:</p>
-                </div>
-                <div class="col-md-6">
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @area.transport %>" aria-valuemin="0" aria-valuemax="5">
-                        <span class="sr-only"><%= @area.transport %></span>
-                      </div>
-                    </div>
+                <table class="table table-responsive">
+                    <tr>
+                      <td class="col-md-6">Getting Around:</td>
+                      <td class="col-md-6">
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<%= @area.transport %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.transport %>0%;">
+                              <%= @area.transport %>
+                            </div>
+                          </div>
+                      </td> 
+                    </tr>
 
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @area.nightlife %>" aria-valuemin="0" aria-valuemax="5">
-                        <span class="sr-only"><%= @area.nightlife %></span>
-                      </div>
-                    </div>
+                    <tr>
+                      <td class="col-md-6">Drinks & Nightlife:</td>
+                      <td class="col-md-6">
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<%= @area.nightlife %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.nightlife %>0%;">
+                              <%= @area.nightlife %>
+                            </div>
+                          </div>
+                      </td> 
+                    </tr>
 
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @area.food %>" aria-valuemin="0" aria-valuemax="5">
-                        <span class="sr-only"><%= @area.food %></span>
-                      </div>
-                    </div>
+                    <tr>
+                      <td class="col-md-6">Food Scene:</td>
+                      <td class="col-md-6">
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<%= @area.food %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.food %>0%;">
+                              <%= @area.food %>
+                            </div>
+                          </div>
+                      </td> 
+                    </tr>
 
-                    <div class="progress">
-                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= @area.green %>" aria-valuemin="0" aria-valuemax="5">
-                        <span class="sr-only"><%= @area.green %></span>
-                      </div>
-                    </div>
-                </div>
+                    <tr>
+                      <td class="col-md-6">Parks & Nature:</td>
+                      <td class="col-md-6">
+                          <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<%= @area.green %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.green %>0%;">
+                              <%= @area.green %>
+                            </div>
+                          </div>
+                      </td> 
+                    </tr>
+
+                </table>
+
             </div>
-        </div>
+          </div>
     </div>
+</div>
 
 <hr>
 
