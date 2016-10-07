@@ -288,3 +288,21 @@ tr img {
 	left:0;
 	position:absolute;
 }
+
+a.btn.btn-filter {
+    padding: 10px 16px;
+    border: 1px solid rgba(0,0,0,0.125);
+    color:#565a5c;
+    border-radius: 0;
+    font-weight: bold;
+    background-color:#FFF;
+}
+
+a.btn.btn-filter:hover {
+    padding: 10px 16px;
+    border: 1px solid rgba(0,0,0,0.333);
+    color:#565a5c;
+    border-radius: 0;
+    font-weight: bold;
+    background-color:#FFF;
+}

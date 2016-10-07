@@ -1,5 +1,5 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron" style="background-color:#3498db;color:#FFF;font-weight:bold">
+    <div class="jumbotron" style="background-color:#3498db;color:#FFF;font-weight:bold;margin-bottom:0;">
       <div class="container">
 
         <div class="row">
@@ -10,28 +10,33 @@
       </div>
     </div>
 
-<div class="container">
-  <p id="notice"><%= notice %></p>
-
-    <div class="row">
+<div class="jumbotron" style="height:300px;">
+  <div class="container">
+      <div class="row" style="margin-bottom:50px;">
+        <div class="col-md-12">
+          <h2>Find a neighbourhood in London</h2>
+          <p>What kind of neighbourhood are you looking for?</p>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-4">
-            <a class="btn btn-filter" onclick="myUrl('region=North')">North</a>
-            <a class="btn btn-filter" onclick="myUrl('region=East')">East</a>
-            <a class="btn btn-filter" onclick="myUrl('region=South')">South</a>
-            <a class="btn btn-filter" onclick="myUrl('region=West')">West</a>
+            <a class="btn btn-filter" onclick="updateUrl('region=North')" style="display:inline;">North</a>
+            <a class="btn btn-filter" onclick="updateUrl('region=East')" style="display:inline;">East</a>
+            <a class="btn btn-filter" onclick="updateUrl('region=South')" style="display:inline;">South</a>
+            <a class="btn btn-filter" onclick="updateUrl('region=West')" style="display:inline;">West</a>
         </div>
         <div class="col-md-4">
-            <a class="btn btn-filter" onclick="myUrl('zone=1')">1</a>
-            <a class="btn btn-filter" onclick="myUrl('zone=2')">2</a>
-            <a class="btn btn-filter" onclick="myUrl('zone=3')">3</a>
-            <a class="btn btn-filter" onclick="myUrl('zone=4')">4</a>
+            <a class="btn btn-filter" onclick="updateUrl('zone=1')" style="display:inline;">Zone 1</a>
+            <a class="btn btn-filter" onclick="updateUrl('zone=2')" style="display:inline;">Zone 2</a>
+            <a class="btn btn-filter" onclick="updateUrl('zone=3')" style="display:inline;">Zone 3</a>
+            <a class="btn btn-filter" onclick="updateUrl('zone=4')" style="display:inline;">Zone 4</a>
         </div>
     </div>
-   
-        
-    
+  </div>
+</div>
 
-
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
     <div class="row">
       <% @areas.each do |area| %>
@@ -112,44 +117,93 @@
 
 <%= link_to 'New Area', new_area_path %>
   
-<!-- the JavaScript -->
-<script type="text/javascript">
-
-  var url = document.location.href;
-
-  function myUrl(value) {
-    // console.log(url);
-    if (url) {
-      if (url.indexOf(value)  != -1) {
-        var place = url.indexOf(value);
-        var length = value.length;
-        url = url.split("");
-        // console.log(url);
-        url.splice(place, length);
-        url = url.join("");
-      }
-      else {
-        // adds value if URL doesn't contain it already
-        if (url.indexOf('?') == -1) {
-          console.log('has ?');
-          url = url + "?" + value;
-        }
-        else {
-          if (url.indexOf('&') == -1) {
-            console.log('has&');
-            url = url + "&" + value;
+<script>
+      var url = document.location.href;
+      
+      function updateUrl(value){
+        //get the info we need
+        var current_url = url;
+        var has_qs = current_url.indexOf('?') != -1;
+        
+        if (has_qs){
+          var qs_place = current_url.indexOf('?')
+          var url_start = current_url.split("").splice(0, qs_place).join("");
+          var q_string = current_url.split("").splice(qs_place + 1, current_url.split("").length);
+          var adding = current_url.indexOf(value) == -1;
+          
+          if (adding){
+            q_string = q_string.join("") + "&" + value;
+            url = url_start + "?" + q_string;
           }
-          else {
-            url = url + value;
-          }  
+          else{
+            //check if its the only thing in the qs
+            if (value.split("").length == q_string.length){
+              url = url_start;
+            }
+            else{
+              var v_place = q_string.join("").indexOf(value);
+              if (v_place == 0){
+                q_string = q_string.splice(value.split("").length + 1, q_string.length);
+                url = url_start + "?" + q_string.join("");
+              }
+              else{
+                var q_string_start = q_string.splice(0, v_place - 1).join("");
+                var q_string_end = q_string.splice(value.length + 1, q_string.length - value.length + 1).join("");
+                url = url_start + "?" + q_string_start + q_string_end;
+              }
+            }
+          }
         }
+        else{
+          url = current_url + "?" + value;
+        }
+        
+        document.location = url;
+        console.log(url);
       }
-    }
-    else {
-      // if there is no URL then it sets the URL to value=thing passed in from button
-      url = value;
-    }
-    document.location = url;
-  }
+      
+    </script>
 
-</script>
+
+
+<!-- the JavaScript -->
+// <script type="text/javascript">
+
+//   var url = document.location.href;
+
+//   function myUrl(value) {
+//     // console.log(url);
+//     if (url) {
+//       if (url.indexOf(value)  != -1) {
+//         var place = url.indexOf(value);
+//         var length = value.length;
+//         url = url.split("");
+//         // console.log(url);
+//         url.splice(place, length);
+//         url = url.join("");
+//       }
+//       else {
+//         // adds value if URL doesn't contain it already
+//         if (url.indexOf('?') == -1) {
+//           console.log('has ?');
+//           url = url + "?" + value;
+//         }
+//         else {
+//           if (url.indexOf('&') == -1) {
+//             console.log('has&');
+//             url = url + "&" + value;
+//           }
+//           else {
+//             url = url + value;
+//           }  
+//         }
+//       }
+//     }
+//     else {
+//       // if there is no URL then it sets the URL to value=thing passed in from button
+//       url = value;
+//     }
+//     document.location = url;
+//   }
+
+// </script>
