@@ -20,16 +20,16 @@
       </div>
       <div class="row">
         <div class="col-md-4">
-            <a class="btn btn-filter" onclick="updateUrl('region=North')" style="display:inline;">North</a>
-            <a class="btn btn-filter" onclick="updateUrl('region=East')" style="display:inline;">East</a>
-            <a class="btn btn-filter" onclick="updateUrl('region=South')" style="display:inline;">South</a>
-            <a class="btn btn-filter" onclick="updateUrl('region=West')" style="display:inline;">West</a>
+            <a class="btn btn-filter" id="region=North" onclick="updateUrl('region=North')" style="display:inline;">North</a>
+            <a class="btn btn-filter" id="region=East" onclick="updateUrl('region=East')" style="display:inline;">East</a>
+            <a class="btn btn-filter" id="region=South" onclick="updateUrl('region=South')" style="display:inline;">South</a>
+            <a class="btn btn-filter" id="region=West" onclick="updateUrl('region=West')" style="display:inline;">West</a>
         </div>
         <div class="col-md-4">
-            <a class="btn btn-filter" onclick="updateUrl('zone=1')" style="display:inline;">Zone 1</a>
-            <a class="btn btn-filter" onclick="updateUrl('zone=2')" style="display:inline;">Zone 2</a>
-            <a class="btn btn-filter" onclick="updateUrl('zone=3')" style="display:inline;">Zone 3</a>
-            <a class="btn btn-filter" onclick="updateUrl('zone=4')" style="display:inline;">Zone 4</a>
+            <a class="btn btn-filter" id="zone=1" onclick="updateUrl('zone=1')" style="display:inline;">Zone 1</a>
+            <a class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;">Zone 2</a>
+            <a class="btn btn-filter" id="zone=3" onclick="updateUrl('zone=3')" style="display:inline;">Zone 3</a>
+            <a class="btn btn-filter" id="zone=4" onclick="updateUrl('zone=4')" style="display:inline;">Zone 4</a>
         </div>
     </div>
   </div>
@@ -44,7 +44,7 @@
             <%= link_to area do %>
             <div class="col-md-4 col-xs-6">
 
-                <div class="area-tile" id="diva_id" onmouseover="SwapDivs('diva_id','divb_id')" style="display:block;background-image:url('<%= area.image.url %>');background-size:100%;">
+                <div class="area-tile" id="diva_id" style="display:block;background-image:url('<%= area.image.url %>');background-size:100%;">
                       <div class="attr top-left">Zone <%= area.zone %></div>
                       <div class="attr top-right">£<%= area.cost %> / m</div>
                       <div class="attr area-title"><span class="title"><%= area.name %></span></br><span class="sub-title"><%= area.region %></span></div>
@@ -162,6 +162,21 @@
         console.log(url);
       }
       
+      var pathArray1 = document.location.href.split('?');
+      var pathArray2 = pathArray1[1].split('&');
+      // console.log(pathArray);
+      // console.log(pathArray2);
+      for (i in pathArray2) {
+        // console.log(pathArray2[i]);
+        var selector = pathArray2[i];
+        // console.log(selector);
+        var element = document.getElementById(selector);
+        // console.log(element);
+        element.className = "btn-filteron";
+      }
+
+
+
     </script>
 
 

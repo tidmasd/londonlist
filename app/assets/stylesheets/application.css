@@ -306,3 +306,16 @@ a.btn.btn-filter:hover {
     font-weight: bold;
     background-color:#FFF;
 }
+
+.btn-filteron, .btn-filteron:hover {
+	padding: 10px 16px;
+    border: 1px solid rgba(0,0,0,0.125);
+    color:#FFF;
+    border-radius: 0;
+    font-weight: bold;
+    background-color:#FFF;
+	background:#565a5c;
+	text-decoration: none;
+	pointer:cursor;
+	text-transform: uppercase;
+}
