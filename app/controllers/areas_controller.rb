@@ -7,6 +7,7 @@ class AreasController < ApplicationController
        @areas = Area.where(nil) #creates an anonymous scope
        @areas = @areas.region(params[:region]) if params[:region].present?
        @areas = @areas.zone(params[:zone]) if params[:zone].present?
+       @areas = @areas.cost(params[:cost]) if params[:cost].present?
      # else
      #   @areas = Area.all
   end

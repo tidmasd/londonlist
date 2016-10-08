@@ -159,30 +159,6 @@ tr {
 	margin-bottom:10px;
 }
 
-.btn-filter, .btn-filters {
-	background:transparent;
-	border: 1px solid #a8a4a0;
-	text-transform: uppercase;
-	color: #a8a4a0;
-	font-size: 0.8em;
-}
-
-.btn-filter {
-	width:100%;
-	padding:15px;
-}
-
-.btn-filters {
-	padding: 15px;
-}
-
-.btn-filter:hover, .btn-filters:hover, .btn-filter:focus, .btn-filters:focus {
-	background:#2980B9;
-	color:#FFF;
-	font-weight: bold;
-	border: 1px solid #2980B9;
-}
-
 .btn-group, .btn-group1 {
 	width:100%;
 }
@@ -288,17 +264,19 @@ tr img {
 	position:absolute;
 }
 
-a.btn.btn-filter {
+button.btn.btn-filter {
     padding: 10px 16px;
-    border: 1px solid rgba(0,0,0,0.125);
-    color:#565a5c;
     border-radius: 0;
     font-weight: bold;
-    background-color:#FFF;
     pointer:cursor;
+    background:#FFF;
+	border: 1px solid #a8a4a0;
+	text-transform: uppercase;
+	color: #a8a4a0;
+	font-size: 0.8em;
 }
 
-a.btn.btn-filter:hover {
+button.btn.btn-filter:hover {
     padding: 10px 16px;
     border: 1px solid rgba(0,0,0,0.333);
     color:#565a5c;
@@ -307,16 +285,16 @@ a.btn.btn-filter:hover {
     background-color:#EEEEEE;
 }
 
-.btn-filteron, .btn-filteron:hover {
-	padding: 10px 16px;
-    border: 1px solid rgba(0,0,0,0.125);
-    color:#999;
+.btn-filteron {
+    padding: 10px 16px;
     border-radius: 0;
     font-weight: bold;
-	background:#EEEEEE;
-	text-decoration: none;
-	pointer:cursor;
+    pointer:cursor;
+    background:#EEEEEE;
+	border: 1px solid #a8a4a0;
 	text-transform: uppercase;
+	color: #a8a4a0;
+	font-size: 0.8em;
 }
 
 #notice {

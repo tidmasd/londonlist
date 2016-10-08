@@ -4,39 +4,83 @@
 
         <div class="row">
           <div class="col-sm-12">
-               <p style="diplay:inline;text-align:center;font-size:1em;font-weight:bold;letter-spacing:1px;">The best places to live and work in London. Join our <img src="https://cdn0.iconfinder.com/data/icons/picons-social/57/54-slack-32.png" style="color:#FFF" height="20px !important"><a id="hyper" href="chat.html">Slack community*</a></p>
+               <p style="diplay:inline;text-align:center;font-size:1em;font-weight:bold;letter-spacing:1px;">Got a question about living in London? Join our <img src="https://cdn0.iconfinder.com/data/icons/picons-social/57/54-slack-32.png" style="color:#FFF" height="20px !important"><a id="hyper" href="chat.html">Slack community</a></p>
           </div>
         </div>
       </div>
     </div>
 
-<div class="jumbotron" style="height:300px;">
+<div class="jumbotron">
   <div class="container">
-      <div class="row" style="margin-bottom:50px;">
-        <div class="col-md-12">
-          <h2>Find a neighbourhood in London</h2>
-          <p>What kind of neighbourhood are you looking for?</p>
+      <!-- <div class="row" style="margin-bottom:50px;">
+        <div class="col-md-4">
+            <div class="form-group">
+              <label for="sel1">Area:</label>
+              <select class="form-control" id="sel1">
+                <option>North</option>
+                <option>East</option>
+                <option>South</option>
+                <option>West</option>
+              </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+              <label for="sel1">Zone:</label>
+              <select class="form-control" id="sel1">
+                <option class="btn btn-filter" id="region=North" onselect="updateUrl('region=North')" >1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+              <label for="sel1">Zone:</label>
+              <select class="form-control" id="sel1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
+        </div>
+      </div> -->
+
+      
+
+     <div class="row">
+        <div class="col-sm-4">
+            <button class="btn btn-filter" id="region=Hackney" onclick="updateUrl('region=Hackney')" style="display:inline;">Hackney</button>
+            <button class="btn btn-filter" id="region=Westminster" onclick="updateUrl('region=Westminster')" style="display:inline;">Westminster</button>
+            <button class="btn btn-filter" id="region=South" onclick="updateUrl('region=South')" style="display:inline;">South</button>
+            <button class="btn btn-filter" id="region=West" onclick="updateUrl('region=West')" style="display:inline;">West</button>
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-filter" id="zone=1" onclick="updateUrl('zone=1')" style="display:inline;">Zone 1</button>
+            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;">Zone 2</button>
+            <button class="btn btn-filter" id="zone=3" onclick="updateUrl('zone=3')" style="display:inline;">Zone 3</button>
+            <button class="btn btn-filter" id="zone=4" onclick="updateUrl('zone=4')" style="display:inline;">Zone 4</button>
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-filter" id="cost=814" onclick="updateUrl('cost=814')" style="display:inline;">< £800</button>
+            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;">£800 - £1250</button>
+            <button class="btn btn-filter" id="zone=4" onclick="updateUrl('zone=4')" style="display:inline;">> £1250</button>
         </div>
       </div>
-
-      <div class="row">
-            <a class="btn btn-filter" id="region=North" onclick="updateUrl('region=North')" style="display:inline;">North London</a>
-            <a class="btn btn-filter" id="region=East" onclick="updateUrl('region=East')" style="display:inline;">East</a>
-            <a class="btn btn-filter" id="region=South" onclick="updateUrl('region=South')" style="display:inline;">South</a>
-            <a class="btn btn-filter" id="region=West" onclick="updateUrl('region=West')" style="display:inline;">West</a>
-          </br>
-          </br>
-          </br>
-            <a class="btn btn-filter" id="zone=1" onclick="updateUrl('zone=1')" style="display:inline;">Zone 1</a>
-            <a class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;">Zone 2</a>
-            <a class="btn btn-filter" id="zone=3" onclick="updateUrl('zone=3')" style="display:inline;">Zone 3</a>
-            <a class="btn btn-filter" id="zone=4" onclick="updateUrl('zone=4')" style="display:inline;">Zone 4</a>
-    </div>
   </div>
 </div>
 
 <div class="container">
   <p id="notice"><%= notice %></p>
+
+    <% if @areas %>
+        <span> <%= @areas.count %> Areas Found</span>
+
+    <% else %>
+        <span> No Areas Found</span>
+    <% end %>
 
     <div class="row">
       <% @areas.each do |area| %>
