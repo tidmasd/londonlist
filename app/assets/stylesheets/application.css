@@ -43,11 +43,10 @@ video {
 
 body {
 	background-color: #FBFBFB !important;
-	padding-top:60px;
+	padding-top:50px;
 }
 .navbar {
 	background-color: #FFF;
-	height:60px;
 	border-bottom: 1px solid #e3e3e3;
 	margin-bottom:0;
 }
@@ -296,6 +295,7 @@ a.btn.btn-filter {
     border-radius: 0;
     font-weight: bold;
     background-color:#FFF;
+    pointer:cursor;
 }
 
 a.btn.btn-filter:hover {
@@ -304,18 +304,21 @@ a.btn.btn-filter:hover {
     color:#565a5c;
     border-radius: 0;
     font-weight: bold;
-    background-color:#FFF;
+    background-color:#EEEEEE;
 }
 
 .btn-filteron, .btn-filteron:hover {
 	padding: 10px 16px;
     border: 1px solid rgba(0,0,0,0.125);
-    color:#FFF;
+    color:#999;
     border-radius: 0;
     font-weight: bold;
-    background-color:#FFF;
-	background:#565a5c;
+	background:#EEEEEE;
 	text-decoration: none;
 	pointer:cursor;
 	text-transform: uppercase;
+}
+
+#notice {
+	display:none;
 }

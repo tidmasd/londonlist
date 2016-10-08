@@ -18,19 +18,19 @@
           <p>What kind of neighbourhood are you looking for?</p>
         </div>
       </div>
+
       <div class="row">
-        <div class="col-md-4">
-            <a class="btn btn-filter" id="region=North" onclick="updateUrl('region=North')" style="display:inline;">North</a>
+            <a class="btn btn-filter" id="region=North" onclick="updateUrl('region=North')" style="display:inline;">North London</a>
             <a class="btn btn-filter" id="region=East" onclick="updateUrl('region=East')" style="display:inline;">East</a>
             <a class="btn btn-filter" id="region=South" onclick="updateUrl('region=South')" style="display:inline;">South</a>
             <a class="btn btn-filter" id="region=West" onclick="updateUrl('region=West')" style="display:inline;">West</a>
-        </div>
-        <div class="col-md-4">
+          </br>
+          </br>
+          </br>
             <a class="btn btn-filter" id="zone=1" onclick="updateUrl('zone=1')" style="display:inline;">Zone 1</a>
             <a class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;">Zone 2</a>
             <a class="btn btn-filter" id="zone=3" onclick="updateUrl('zone=3')" style="display:inline;">Zone 3</a>
             <a class="btn btn-filter" id="zone=4" onclick="updateUrl('zone=4')" style="display:inline;">Zone 4</a>
-        </div>
     </div>
   </div>
 </div>
@@ -44,7 +44,7 @@
             <%= link_to area do %>
             <div class="col-md-4 col-xs-6">
 
-                <div class="area-tile" id="diva_id" style="display:block;background-image:url('<%= area.image.url %>');background-size:100%;">
+                <div class="area-tile" id="diva_id" style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),rgba(0,0,0,0.55) url('<%= area.image.url %>') no-repeat center;background-size:cover;">
                       <div class="attr top-left">Zone <%= area.zone %></div>
                       <div class="attr top-right">£<%= area.cost %> / m</div>
                       <div class="attr area-title"><span class="title"><%= area.name %></span></br><span class="sub-title"><%= area.region %></span></div>
@@ -174,8 +174,6 @@
         // console.log(element);
         element.className = "btn-filteron";
       }
-
-
 
     </script>
 

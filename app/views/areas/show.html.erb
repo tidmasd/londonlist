@@ -1,18 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-
 <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron" style="">
-      <div class="container" style="text-align:center">
+    <div class="jumbotron img-overlay" style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),rgba(0,0,0,0.55) url('<%= @area.image.url %>') no-repeat center;background-position:0 -200px">
+          <div class="container" style="text-align:center;height:50vh">
 
-        <div class="row">
-          <div class="col-sm-12">
-               <p><%= @area.name %></p>
-               <p><%= @area.region %></p>
-                  <%= image_tag @area.image_url %>
+            <div class="row" style="color:#FFF;">
+              <div class="col-sm-12">
+                   <p style="font-size:4em;font-weight:bold;padding:100px 0 35px 0;"><%= @area.name %></p>
+                   <p><%= @area.description %></p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
     </div>
 
 
