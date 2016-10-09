@@ -1,5 +1,5 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron" style="background-color:#3498db;color:#FFF;font-weight:bold;margin-bottom:0;">
+<!--     <div class="jumbotron" style="background-color:#3498db;color:#FFF;font-weight:bold;margin-bottom:0;">
       <div class="container">
 
         <div class="row">
@@ -8,41 +8,19 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-<div class="jumbotron">
+<div class="div" style="padding-top:50px;">
   <div class="container">
-      <!-- <div class="row" style="margin-bottom:50px;">
+<!--       <div class="row" style="margin-bottom:50px;">
         <div class="col-md-4">
             <div class="form-group">
-              <label for="sel1">Area:</label>
+              <label for="sel1">Borough</label>
               <select class="form-control" id="sel1">
-                <option>North</option>
-                <option>East</option>
+                <option value="region=Hackney" id="region=Hackney">Hackney</option>
+                <option value="region=Westminster" id="region=Hackney">East</option>
                 <option>South</option>
                 <option>West</option>
-              </select>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-              <label for="sel1">Zone:</label>
-              <select class="form-control" id="sel1">
-                <option class="btn btn-filter" id="region=North" onselect="updateUrl('region=North')" >1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-              <label for="sel1">Zone:</label>
-              <select class="form-control" id="sel1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
               </select>
             </div>
         </div>
@@ -52,21 +30,25 @@
 
      <div class="row">
         <div class="col-sm-4">
+          <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
             <button class="btn btn-filter" id="region=Hackney" onclick="updateUrl('region=Hackney')" style="display:inline;">Hackney</button>
             <button class="btn btn-filter" id="region=Westminster" onclick="updateUrl('region=Westminster')" style="display:inline;">Westminster</button>
             <button class="btn btn-filter" id="region=South" onclick="updateUrl('region=South')" style="display:inline;">South</button>
-            <button class="btn btn-filter" id="region=West" onclick="updateUrl('region=West')" style="display:inline;">West</button>
+          </div>
         </div>
         <div class="col-sm-4">
+          <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
             <button class="btn btn-filter" id="zone=1" onclick="updateUrl('zone=1')" style="display:inline;">Zone 1</button>
             <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;">Zone 2</button>
             <button class="btn btn-filter" id="zone=3" onclick="updateUrl('zone=3')" style="display:inline;">Zone 3</button>
-            <button class="btn btn-filter" id="zone=4" onclick="updateUrl('zone=4')" style="display:inline;">Zone 4</button>
+          </div>
         </div>
         <div class="col-sm-4">
-            <button class="btn btn-filter" id="cost=814" onclick="updateUrl('cost=814')" style="display:inline;">< £800</button>
-            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;">£800 - £1250</button>
-            <button class="btn btn-filter" id="zone=4" onclick="updateUrl('zone=4')" style="display:inline;">> £1250</button>
+          <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+            <button class="btn btn-filter" id="cost=814" onclick="updateUrl('cost=814')" style="display:inline;">Cheap</button>
+            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;">Affordable</button>
+            <button class="btn btn-filter" id="zone=4" onclick="updateUrl('zone=4')" style="display:inline;">Expensive</button>
+          </div>
         </div>
       </div>
   </div>
@@ -76,9 +58,9 @@
   <p id="notice"><%= notice %></p>
 
     <% if @areas %>
-        <span> <%= @areas.count %> Areas Found</span>
-
-    <% else %>
+        <h4> <%= @areas.count %> Areas Found</h4>
+      </br>
+    <% else  %>
         <span> No Areas Found</span>
     <% end %>
 
@@ -86,44 +68,24 @@
       <% @areas.each do |area| %>
             
             <%= link_to area do %>
-            <div class="col-md-4 col-xs-6">
+            <div class="col-md-4 col-sm-6">
 
                 <div class="area-tile" id="diva_id" style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),rgba(0,0,0,0.55) url('<%= area.image.url %>') no-repeat center;background-size:cover;">
+                  <div class="area-inside">
                       <div class="attr top-left">Zone <%= area.zone %></div>
                       <div class="attr top-right">£<%= area.cost %> / m</div>
                       <div class="attr area-title"><span class="title"><%= area.name %></span></br><span class="sub-title"><%= area.region %></span></div>
+                  </div>
                 </div>
-
-                <!-- <div class="area-tile" id="divb_id" style="display:none" onmouseout="SwapDivs('diva_id','divb_id')">
-                      <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="<%= area.transport %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= area.transport %>0%;">
-                              <%= area.transport %>
-                            </div>
-                      </div>
-                      <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="<%= area.nightlife %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= area.nightlife %>0%;">
-                              <%= area.nightlife %>
-                            </div>
-                      </div>
-                      <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="<%= area.food %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= area.food %>0%;">
-                              <%= area.food %>
-                            </div>
-                      </div>
-                      <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="<%= area.green %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= area.green %>0%;">
-                              <%= area.green %>
-                            </div>
-                      </div>
-                </div> -->
             </div>
             <% end %>
               
       <% end %>
     </div>
-      <!-- <table class="table table-hover table-condensed">
+    <!-- <table class="table table-hover table-condensed">
         <thead>
           <tr>
+            <th class="col-md-2"></th>
             <th class="col-md-2">Name</th>
             <th class="col-md-1">Region</th>
             <th class="col-md-4">Zone</th>
@@ -140,6 +102,7 @@
         <tbody>
           <% @areas.each do |area| %>
             <tr>
+              <td><img src="<%= area.image.url %>" style="width:100%"></td>
               <td><%= area.name %></td>
               <td><%= area.region %></td>
               <td><%= area.zone %></td>
@@ -156,8 +119,6 @@
           <% end %>
         </tbody>
       </table> -->
-
-<br>
 
 <%= link_to 'New Area', new_area_path %>
   
@@ -216,51 +177,6 @@
         // console.log(selector);
         var element = document.getElementById(selector);
         // console.log(element);
-        element.className = "btn-filteron";
+        element.className = "btn btn-filteron active";
       }
-
     </script>
-
-
-
-<!-- the JavaScript -->
-// <script type="text/javascript">
-
-//   var url = document.location.href;
-
-//   function myUrl(value) {
-//     // console.log(url);
-//     if (url) {
-//       if (url.indexOf(value)  != -1) {
-//         var place = url.indexOf(value);
-//         var length = value.length;
-//         url = url.split("");
-//         // console.log(url);
-//         url.splice(place, length);
-//         url = url.join("");
-//       }
-//       else {
-//         // adds value if URL doesn't contain it already
-//         if (url.indexOf('?') == -1) {
-//           console.log('has ?');
-//           url = url + "?" + value;
-//         }
-//         else {
-//           if (url.indexOf('&') == -1) {
-//             console.log('has&');
-//             url = url + "&" + value;
-//           }
-//           else {
-//             url = url + value;
-//           }  
-//         }
-//       }
-//     }
-//     else {
-//       // if there is no URL then it sets the URL to value=thing passed in from button
-//       url = value;
-//     }
-//     document.location = url;
-//   }
-
-// </script>

@@ -20,6 +20,18 @@
 
 p {
   font-family: 'Open Sans', sans-serif;
+  font-size:1.1em;
+  line-height: 1.5em;
+  padding: 30px 0;
+}
+
+.jumbotron h1 {
+	padding-top:40px;
+	font-size: 3.4em !important;
+}
+
+.jumbotron p {
+	padding: 10px 0 0 0 !important;
 }
 
 #container {
@@ -27,6 +39,13 @@ p {
   height: 400px;
   background: #edeae8;
   position: relative;
+}
+
+.btn-joinchat {
+	background-color: #FF5A5F;
+	text-transform: uppercase;
+	padding:10px 40px !important;
+	font-weight: bold;
 }
 
 video {
@@ -126,7 +145,7 @@ th {
 }
 
 .jumbotron {
-	padding:20px;
+	padding:10px 0 0 0;
 }
 
 .jumbotron p {
@@ -159,16 +178,29 @@ tr {
 	margin-bottom:10px;
 }
 
-.btn-group, .btn-group1 {
+.btn-group {
 	width:100%;
 }
 
-.btn-group button {
-	width:33.3%;
+.btn-filter {
+	width:33.5%;
+	background-color: #FFF;
+	border:1px solid #999 !important;
+	text-transform: uppercase;
+	font-size:0.8em !important;
+	font-weight: bold;
+	text-align: center;
 }
 
-.btn-group1 button {
-	width:49.3%;
+.btn-filteron {
+	width:33.5%;
+	background-color: #999;
+	border:1px solid #999 !important;
+	text-transform: uppercase;
+	font-size:0.8em !important;
+	font-weight: bold;
+	text-align: center;
+	color: #FFF;
 }
 
 #hyper {
@@ -214,12 +246,16 @@ tr img {
 }
 
 .area-tile {
-	background-image: url('http://www.fluidnetwork.co.uk/gfx/venues/2131/the-artesian-well-bar-club-clapham-photos-01.jpg');
 	height:250px;
 	width:100%;
 	padding:5px;
 	text-align: center;
 	margin-bottom:40px;
+	z-index: 0;
+}
+
+.area-tile:hover {
+	opacity:0.8;
 }
 
 .area-title {
@@ -264,38 +300,6 @@ tr img {
 	position:absolute;
 }
 
-button.btn.btn-filter {
-    padding: 10px 16px;
-    border-radius: 0;
-    font-weight: bold;
-    pointer:cursor;
-    background:#FFF;
-	border: 1px solid #a8a4a0;
-	text-transform: uppercase;
-	color: #a8a4a0;
-	font-size: 0.8em;
-}
-
-button.btn.btn-filter:hover {
-    padding: 10px 16px;
-    border: 1px solid rgba(0,0,0,0.333);
-    color:#565a5c;
-    border-radius: 0;
-    font-weight: bold;
-    background-color:#EEEEEE;
-}
-
-.btn-filteron {
-    padding: 10px 16px;
-    border-radius: 0;
-    font-weight: bold;
-    pointer:cursor;
-    background:#EEEEEE;
-	border: 1px solid #a8a4a0;
-	text-transform: uppercase;
-	color: #a8a4a0;
-	font-size: 0.8em;
-}
 
 #notice {
 	display:none;

@@ -3,6 +3,8 @@ class Area < ActiveRecord::Base
 	scope :zone, -> (zone) { where zone: zone}
 	scope :cost, -> (cost) { where cost: cost}
 
-	  mount_uploader :image, ImageUploader
+	scope :published, -> {where(:published => 1)}
+
+	mount_uploader :image, ImageUploader
 
 end

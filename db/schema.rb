@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006204153) do
+ActiveRecord::Schema.define(version: 20161009205010) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -23,9 +23,10 @@ ActiveRecord::Schema.define(version: 20161006204153) do
     t.integer  "nightlife"
     t.integer  "food"
     t.integer  "green"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "image"
+    t.boolean  "published",   default: false
   end
 
 end
