@@ -31,6 +31,10 @@ p {
     height:30px !important;
 }
 
+.progress-bar {
+	padding-top: 5px !important;
+}
+
 .jumbotron h1 {
 	padding-top:10px;
 	font-size: 3em !important;
