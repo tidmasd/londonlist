@@ -2,14 +2,13 @@
 
 <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron img-overlay" style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),rgba(0,0,0,0.55) url('<%= @area.image.url %>') no-repeat center;background-position:0;background-size:cover;">
-          <div class="container" style="text-align:center;height:50vh">
+          <div class="container" style="text-align:center;height:30vh">
 
             <div class="row" style="color:#FFF;">
               <div class="col-sm-12">
                    <h1><%= @area.name %></h1>
                    <p><%= @area.region %></p>
-                  </br>
-                  </br>
+                 </br>
                    <button class="btn btn-joinchat" href="chat.html">Join Chat</button>
               </div>
             </div>
@@ -19,24 +18,16 @@
 
 <div class="container" style="padding-bottom:50px;">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="col-md-6">
-              <%= image_tag "train_icon.jpg", style: "width:40px;" %> Zone <%= @area.zone %>
-            </div>
-            <div class="col-md-6">
-              <%= image_tag "house-icon.jpg", style: "width:40px;" %> £<%= @area.cost %> per month
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-8">
             <p><%= @area.description %>
+              <div class="col-md-6">
+              <%= image_tag "train_icon.jpg", style: "width:40px;" %> Zone <%= @area.zone %>
+              </div>
+              <div class="col-md-6">
+                <%= image_tag "house-icon.jpg", style: "width:40px;" %> £<%= @area.cost %> per month
+              </div>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4 col-md-offset-2">
+        <div class="col-md-4 ratings">
           
           <label for="progress-bar">Getting around</label>
           <div class="progress">
@@ -63,13 +54,19 @@
                             <div class="progress-bar" role="progressbar" aria-valuenow="<%= @area.green %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.green %>0%;">
                               <%= @area.green %>
                             </div>
-                          </div>  
+                          </div>
+
+          <label for="progress-bar">Cost</label>
+          <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<%= @area.green %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.green %>0%;">
+                              <%= @area.green %>
+                            </div>
+                          </div>
+
 
         </div>
     </div>
-
-      
-    </div>
+   </div>
 </div>
 </div>
 

@@ -25,9 +25,19 @@ p {
   padding: 30px 0;
 }
 
+.progress, .progress-bar {
+    border-radius: 0 !important;
+    background-image: none !important;
+    height:30px !important;
+}
+
 .jumbotron h1 {
-	padding-top:40px;
-	font-size: 3.4em !important;
+	padding-top:10px;
+	font-size: 3em !important;
+}
+
+.ratings {
+	padding-top:30px;
 }
 
 .jumbotron p {
