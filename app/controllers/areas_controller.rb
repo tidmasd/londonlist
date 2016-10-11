@@ -4,9 +4,15 @@ class AreasController < ApplicationController
   # GET /areas
   # GET /areas.json
   def index
-       @areas = Area.where(nil) #creates an anonymous scope
-       @areas = @areas.region(params[:region]) if params[:region].present?
-       @areas = @areas.zone(params[:zone]) if params[:zone].present?
+        if params[:category].blank?
+          @areas = Area.where(nil) #creates an anonymous scope
+        else
+          @category_id = Category.find_by(name: params[:category]).id
+          @areas = Area.where(category_id: @category_id).order("created_at DESC")
+        end
+
+       # @areas = @areas.region(params[:region]) if params[:region].present?
+       # @areas = @areas.zone(params[:zone]) if params[:zone].present?
        # @areas = @areas.published.cost(params[:cost]) if params[:cost].present?
      # else
      #   @areas = Area.all
@@ -74,6 +80,6 @@ class AreasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def area_params
-      params.require(:area).permit(:name, :region, :zone, :cost, :description, :transport, :nightlife, :food, :green, :image)
+      params.require(:area).permit(:name, :region, :zone, :cost, :description, :transport, :nightlife, :food, :green, :image, :category_id)
     end
 end

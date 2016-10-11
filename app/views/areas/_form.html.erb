@@ -16,6 +16,12 @@
     <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="field">
+    <%= f.label :category_id %><br>
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt:"Choose a category"}, {class:"btn btn-default dropdown-toggle"} %>
+  </div>
+
+
+  <div class="field">
     <%= f.label :region %><br>
     <%= f.text_field :region, class: "form-control" %>
   </div>

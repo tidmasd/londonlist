@@ -10,8 +10,8 @@
       </div>
     </div> -->
 
-<div class="div" style="padding-top:50px;">
-  <div class="container">
+<!-- <div class="div" style="padding-top:50px;">
+  <div class="container"> -->
 <!--       <div class="row" style="margin-bottom:50px;">
         <div class="col-md-4">
             <div class="form-group">
@@ -28,7 +28,7 @@
 
       
 
-     <div class="row">
+     <!-- <div class="row">
         <div class="col-sm-4">
           <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
             <button class="btn btn-filter" id="region=Hackney" onclick="updateUrl('region=Hackney')" style="display:inline;">Hackney</button>
@@ -52,12 +52,29 @@
         </div>
       </div>
   </div>
-</div>
+</div> -->
 
 <div class="container">
+
+  <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+              <label for="sel1">Browse Area:</label>
+              <select class="form-control" id="category1" onchange="addCat()">
+                <option>Select area</option>
+                <%= Category.all.each do |category| %>
+                    <option><%= link_to category.name, areas_path(category: category.name) %></option>
+                <% end %>
+              </select>
+            </div>
+        </div>
+  </div>
+
+  
+
   <p id="notice"><%= notice %></p>
 
-    <% if @areas %>
+    <% if @areas != 0 %>
         <h4> <%= @areas.count %> Areas Found</h4>
       </br>
     <% else  %>
@@ -74,7 +91,7 @@
                   <div class="area-inside">
                       <div class="attr top-left">Zone <%= area.zone %></div>
                       <div class="attr top-right">£<%= area.cost %> / m</div>
-                      <div class="attr area-title"><span class="title"><%= area.name %></span></br><span class="sub-title"><%= area.region %></span></div>
+                      <div class="attr area-title"><span class="title"><%= area.name %></span></br><span class="sub-title"><%= area.category.name %></span></div>
                   </div>
                 </div>
             </div>
@@ -122,61 +139,77 @@
 
 <%= link_to 'New Area', new_area_path %>
   
-<script>
-      var url = document.location.href;
+<script type="text/javascript">
+
+function addCat() {
+  var cat = document.getElementById("category1").value;
+
+  var url = document.location.href;
+
+  document.location.href = url + "?category=" + cat;
+}
+  
+
+
+</script>
+
+
+
+// <script>
+//       var url = document.location.href;
       
-      function updateUrl(value){
-        //get the info we need
-        var current_url = url;
-        var has_qs = current_url.indexOf('?') != -1;
+//       function updateUrl(value){
+//         //get the info we need
+//         var current_url = url;
+//         var has_qs = current_url.indexOf('?') != -1;
         
-        if (has_qs){
-          var qs_place = current_url.indexOf('?')
-          var url_start = current_url.split("").splice(0, qs_place).join("");
-          var q_string = current_url.split("").splice(qs_place + 1, current_url.split("").length);
-          var adding = current_url.indexOf(value) == -1;
+//         if (has_qs){
+//           var qs_place = current_url.indexOf('?')
+//           var url_start = current_url.split("").splice(0, qs_place).join("");
+//           var q_string = current_url.split("").splice(qs_place + 1, current_url.split("").length);
+//           var adding = current_url.indexOf(value) == -1;
           
-          if (adding){
-            q_string = q_string.join("") + "&" + value;
-            url = url_start + "?" + q_string;
-          }
-          else{
-            //check if its the only thing in the qs
-            if (value.split("").length == q_string.length){
-              url = url_start;
-            }
-            else{
-              var v_place = q_string.join("").indexOf(value);
-              if (v_place == 0){
-                q_string = q_string.splice(value.split("").length + 1, q_string.length);
-                url = url_start + "?" + q_string.join("");
-              }
-              else{
-                var q_string_start = q_string.splice(0, v_place - 1).join("");
-                var q_string_end = q_string.splice(value.length + 1, q_string.length - value.length + 1).join("");
-                url = url_start + "?" + q_string_start + q_string_end;
-              }
-            }
-          }
-        }
-        else{
-          url = current_url + "?" + value;
-        }
+//           if (adding){
+//             q_string = q_string.join("") + "&" + value;
+//             url = url_start + "?" + q_string;
+//           }
+//           else{
+//             //check if its the only thing in the qs
+//             if (value.split("").length == q_string.length){
+//               url = url_start;
+//             }
+//             else{
+//               var v_place = q_string.join("").indexOf(value);
+//               if (v_place == 0){
+//                 q_string = q_string.splice(value.split("").length + 1, q_string.length);
+//                 url = url_start + "?" + q_string.join("");
+//               }
+//               else{
+//                 var q_string_start = q_string.splice(0, v_place - 1).join("");
+//                 var q_string_end = q_string.splice(value.length + 1, q_string.length - value.length + 1).join("");
+//                 url = url_start + "?" + q_string_start + q_string_end;
+//               }
+//             }
+//           }
+//         }
+//         else{
+//           url = current_url + "?" + value;
+//         }
         
-        document.location = url;
-        console.log(url);
-      }
+//         document.location = url;
+//         console.log(url);
+//       }
       
-      var pathArray1 = document.location.href.split('?');
-      var pathArray2 = pathArray1[1].split('&');
-      // console.log(pathArray);
-      // console.log(pathArray2);
-      for (i in pathArray2) {
-        // console.log(pathArray2[i]);
-        var selector = pathArray2[i];
-        // console.log(selector);
-        var element = document.getElementById(selector);
-        // console.log(element);
-        element.className = "btn btn-filteron active";
-      }
-    </script>
+//       var pathArray1 = document.location.href.split('?');
+//       var pathArray2 = pathArray1[1].split('&');
+//       // console.log(pathArray);
+//       // console.log(pathArray2);
+//       for (i in pathArray2) {
+//         // console.log(pathArray2[i]);
+//         var selector = pathArray2[i];
+//         // console.log(selector);
+//         var element = document.getElementById(selector);
+//         // console.log(element);
+//         element.className = "btn btn-filteron active";
+//       }
+//     </script>
