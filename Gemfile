@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails_12factor', group: :production
+gem 'devise'
+
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
