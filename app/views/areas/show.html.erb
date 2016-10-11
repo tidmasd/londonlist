@@ -49,6 +49,11 @@
             <%= @area.green %>
           </div>
         </div>
+        <% if user_signed_in? %>
+          <%= link_to 'Edit', edit_area_path %>
+        <% else %>
+          <p>If you would like to submit a rating, contact x@x.com</p>
+        <% end %>
       </div>
     </div>
   </div>
