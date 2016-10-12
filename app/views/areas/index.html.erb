@@ -137,7 +137,13 @@
         </tbody>
       </table> -->
 
-<%= link_to 'New Area', new_area_path %>
+<% if current_user.try(:admin?) %>
+          <%= link_to 'New Area', new_area_path %>
+        <% else %>
+          
+        <% end %>
+
+
   
 <script type="text/javascript">
 
