@@ -111,8 +111,7 @@ p {
 
 video {
   position: absolute;
-  
-  /* Vertical and Horizontal center*/
+  /* Vertical and Horizontal center */
   left: 50%; top: 50%;
   transform: translate(-50%, -50%);
 }
@@ -372,4 +371,3 @@ tr img {
 #notice {
 	display:none;
 }
-*/
