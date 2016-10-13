@@ -1,4 +1,4 @@
-/*
+/*/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -255,25 +255,20 @@ tr {
 	width:100%;
 }
 
+.filter-count {
+	color:#666;
+	font-weight:bold;
+	float:right;
+}
+
 .btn-filter {
-	width:33.5%;
+ 	width:25%;
 	background-color: #FFF;
 	border:1px solid #999 !important;
 	text-transform: uppercase;
-	font-size:0.8em !important;
+	font-size:0.9em !important;
 	font-weight: bold;
 	text-align: center;
-}
-
-.btn-filteron {
-	width:33.5%;
-	background-color: #999;
-	border:1px solid #999 !important;
-	text-transform: uppercase;
-	font-size:0.8em !important;
-	font-weight: bold;
-	text-align: center;
-	color: #FFF;
 }
 
 #hyper {
@@ -377,3 +372,4 @@ tr img {
 #notice {
 	display:none;
 }
+*/

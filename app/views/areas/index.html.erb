@@ -1,36 +1,46 @@
 <div class="container" style="padding-top:50px;">
   <div class="filters">
       <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-6">
               <div class="btn-group btn-group-lg filter-button-group" data-filter-group="zone" role="group">
-                <button class="btn btn-filter button" data-filter=".zoneone" style="display:inline;">Zone 1</button>
-                <button class="btn btn-filter button" data-filter=".zonetwo" style="display:inline;">Zone 2</button>
-                <button class="btn btn-filter button" data-filter=".zonethree" style="display:inline;">Zone 3</button>
+                <button class="btn btn-filter button" data-filter="" style="display:inline;">Any Zone </button>
+                <button class="btn btn-filter button" data-filter=".zoneone" style="display:inline;">Zone 1 <span class="filter-count"></span></button>
+                <button class="btn btn-filter button" data-filter=".zonetwo" style="display:inline;">Zone 2 <span class="filter-count"></span></button>
+                <button class="btn btn-filter button" data-filter=".zonethree" style="display:inline;">Zone 3 <span class="filter-count"></span></button>
               </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
               <div class="btn-group btn-group-lg filter-button-group" data-filter-group="cost" role="group" aria-label="Basic example">
-                <button class="btn btn-filter button" data-filter=".cheap" style="display:inline;">Cheap</button>
-                <button class="btn btn-filter button" data-filter=".affordable" style="display:inline;">Affordable</button>
-                <button class="btn btn-filter button" data-filter=".expensive" style="display:inline;">Expensive</button>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="type" role="group" aria-label="Basic example">
-                <button class="btn btn-filter button" data-filter=".safe" style="display:inline;">Safe Area</button>
-                <button class="btn btn-filter button" data-filter=".nightlife" style="display:inline;">Good Nightlife</button>
-                <button class="btn btn-filter button" data-filter=".green" style="display:inline;">Green Spaces</button>
+                <button class="btn btn-filter button" data-filter="" style="display:inline;">Any Cost </button>
+                <button class="btn btn-filter button" data-filter=".cheap" style="display:inline;">Cheap <span class="filter-count"></button>
+                <button class="btn btn-filter button" data-filter=".affordable" style="display:inline;">Affordable <span class="filter-count"></button>
+                <button class="btn btn-filter button" data-filter=".expensive" style="display:inline;">Expensive <span class="filter-count"></button>
               </div>
             </div>
       </div>
     </br>
       <div class="row">
-            <div class="col-sm-4">
+        <div class="col-sm-6">
               <div class="btn-group btn-group-lg filter-button-group" data-filter-group="type" role="group" aria-label="Basic example">
-                <button class="btn btn-filter button" data-filter=".safe" style="display:inline;">North</button>
-                <button class="btn btn-filter button" data-filter=".nightlife" style="display:inline;">South</button>
+                <button class="btn btn-filter button" data-filter=".safe" style="display:inline;">Safety <span class="filter-count"></button>
+                <button class="btn btn-filter button" data-filter=".nightlife" style="display:inline;">Nightlife <span class="filter-count"></button>
+                <button class="btn btn-filter button" data-filter=".green" style="display:inline;">Food & Drink <span class="filter-count"></button>
+                <button class="btn btn-filter button" data-filter=".green" style="display:inline;">Parks</button>
               </div>
             </div>
+            <div class="col-sm-6">
+              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="type" role="group" aria-label="Basic example">
+                <button class="btn btn-filter button" data-filter=".north" style="display:inline;">North</button>
+                <button class="btn btn-filter button" data-filter=".south" style="display:inline;">South</button>
+                <button class="btn btn-filter button" data-filter=".north" style="display:inline;">East</button>
+                <button class="btn btn-filter button" data-filter=".south" style="display:inline;">West</button>
+              </div>
+            </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <p><input type="text" class="form-control" id="quicksearch" placeholder="Search" /></p>
+          </div>
       </div>
   </br>
   </div>
@@ -39,7 +49,7 @@
       <div class="row grid">
           
           <% @areas.each do |area| %>
-              <div class="col-md-4 col-sm-12 grid-item <%= area.cost >= 900 ? 'expensive' : ' ' %><%= area.cost <= 600 ? 'cheap' : ' ' %> <%= area.green >= 7 ? 'green' : ' ' %> <%= area.nightlife >= 7 ? 'nightlife' : ' ' %> <%= area.zone === 1 ? 'zoneone' : ' ' %> <%= area.zone === 2 ? 'zonetwo' : ' ' %> <%= area.zone === 3 ? 'zonethree' : ' ' %> <%= area.category.crime >= 7 ? 'safe' : ' ' %>">
+              <div class="col-md-4 col-sm-12 grid-item <%= area.cost < 600 ? 'cheap' : '' %> <%= area.cost > 900 ? 'expensive' : '' %> <%= area.green >= 7 ? 'green' : ' ' %> <%= area.nightlife >= 7 ? 'nightlife' : ' ' %> <%= area.zone === 1 ? 'zoneone' : ' ' %> <%= area.zone === 2 ? 'zonetwo' : ' ' %> <%= area.zone === 3 ? 'zonethree' : ' ' %> <%= area.category.crime >= 7 ? 'safe' : ' ' %>">
                     <%= link_to area do %>
                     <div class="area-tile" id="diva_id" style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),rgba(0,0,0,0.55) url('<%= area.image.url %>') no-repeat center;background-size:cover;">
                       <div class="area-inside">
@@ -71,6 +81,10 @@ var $grid = $('.grid').isotope({
 // store filter for each group
 var filters = {};
 
+var $filterButtons = $('.filters .btn');
+
+updateFilterCounts();
+
 $('.filters').on( 'click', '.button', function() {
   var $this = $(this);
   // get group key
@@ -83,6 +97,7 @@ $('.filters').on( 'click', '.button', function() {
   // set filter for Isotope
   $grid.isotope({ filter: filterValue });
   // console.log(filterValue);
+  updateFilterCounts();
   console.log( filters );
 });
 
@@ -95,6 +110,21 @@ $('.btn-group').each( function( i, buttonGroup ) {
   });
 });
 
+function updateFilterCounts()  {
+  // get filtered item elements
+  var itemElems = $grid.isotope('getFilteredItemElements');
+  var $itemElems = $( itemElems );
+  $filterButtons.each( function( i, button ) {
+    var $button = $( button );
+    var filterValue = $button.attr('data-filter');
+    if ( !filterValue ) {
+      // do not update 'any' buttons
+      return;
+    }
+    var count = $itemElems.filter( filterValue ).length;
+    $button.find('.filter-count').text( count );
+  });
+}
 
 
 // flatten object by concatting values
