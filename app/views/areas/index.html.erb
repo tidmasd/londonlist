@@ -1,5 +1,5 @@
 <div class="container" style="padding-top:50px;">
-  <div class="row">
+<!--   <div class="row">
         <div class="col-sm-4">
           <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
             <button class="btn btn-filter" id="zone=1" onclick="updateUrl('zone=1')" style="display:inline;">Zone 1</button>
@@ -16,6 +16,26 @@
         </div>
         <div class="col-sm-4">
             <button class="btn btn-filter" id="zone=1" onclick="updateUrl('green=6')" style="display:inline;width:49.5%;">North</button>
+            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;width:49.5%;">South</button>
+        </div>
+  </div> -->
+  <div class="row">
+        <div class="col-sm-4">
+          <div class="btn-group btn-group-lg filter-button-group" role="group" aria-label="Basic example">
+            <button class="btn btn-filter" id="zone=1" onclick="updateUrl('zone=1')" style="display:inline;">Zone 1</button>
+            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;">Zone 2</button>
+            <button class="btn btn-filter" id="zone=3" onclick="updateUrl('zone=3')" style="display:inline;">Zone 3</button>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="btn-group btn-group-lg filter-button-group" role="group" aria-label="Basic example">
+            <button class="btn btn-filter" data-filter=".cheap" style="display:inline;">Cheap</button>
+            <button class="btn btn-filter" data-filter=".affordable" style="display:inline;">Affordable</button>
+            <button class="btn btn-filter" data-filter=".expensive" style="display:inline;">Expensive</button>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-filter filter-button-group" id="zone=1" onclick="updateUrl('green=6')" style="display:inline;width:49.5%;">North</button>
             <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;width:49.5%;">South</button>
         </div>
   </div>
@@ -51,9 +71,9 @@
       <% @areas.each do |area| %>
             
             <%= link_to area do %>
-            <div class="col-md-4 col-xs-6">
+            <div class="col-md-4 col-xs-6 grid">
 
-                <div class="area-tile" id="diva_id" style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),rgba(0,0,0,0.55) url('<%= area.image.url %>') no-repeat center;background-size:cover;">
+                <div class="area-tile grid-item <%= area.green >= 7 ? 'green' : ' ' %> <%= area.cost >= 900 ? 'expensive' : ' ' %><%= area.cost <= 600 ? 'cheap' : ' ' %>" id="diva_id" style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),rgba(0,0,0,0.55) url('<%= area.image.url %>') no-repeat center;background-size:cover;">
                   <div class="area-inside">
                       <div class="attr top-left">Zone <%= area.zone %></div>
                       <div class="attr top-right">£<%= area.cost %> / m</div>
@@ -113,6 +133,18 @@
 
   
 <script type="text/javascript">
+
+// init Isotope
+var $grid = $('.grid').isotope({
+  // options
+});
+// filter items on button click
+$('.filter-button-group').on( 'click', 'button', function() {
+  var filterValue = $(this).attr('data-filter');
+  $grid.isotope({ filter: filterValue });
+  console.log(filterValue);
+});
+
 
 function addCat() {
   var cat = document.getElementById("category1").value;
