@@ -5,15 +5,21 @@ class AreasController < ApplicationController
   # GET /areas.json
   def index
         if params[:category].blank?
-          @areas = Area.where(nil) #creates an anonymous scope
+          @areas = Area.where(nil).order("cost ASC") #creates an anonymous scope
+          @areas = @areas.region(params[:region]) if params[:region].present?
+          @areas = @areas.zone(params[:zone]) if params[:zone].present?
+          @areas = @areas.cost(params[:cost]) if params[:cost].present?
+          @areas = @areas.green(params[:green]) if params[:green].present?
         else
           @category_id = Category.find_by(name: params[:category]).id
-          @areas = Area.where(category_id: @category_id).order("created_at DESC")
+          @areas = Area.where(category_id: @category_id).order("cost DESC")
+          @areas = @areas.region(params[:region]) if params[:region].present?
+          @areas = @areas.zone(params[:zone]) if params[:zone].present?
+          @areas = @areas.cost(params[:cost]) if params[:cost].present?
+          @areas = @areas.green(params[:green]) if params[:green].present?
         end
 
-       # @areas = @areas.region(params[:region]) if params[:region].present?
-       # @areas = @areas.zone(params[:zone]) if params[:zone].present?
-       # @areas = @areas.published.cost(params[:cost]) if params[:cost].present?
+       
      # else
      #   @areas = Area.all
   end

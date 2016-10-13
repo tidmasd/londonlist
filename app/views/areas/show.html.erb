@@ -19,9 +19,28 @@
 <div class="container" style="padding-bottom:50px;">
   <div class="row">
     <div class="col-md-8 col-sm-6">
-      <p><%= @area.description %>
-      </div>
-      <div class="col-md-4 col-sm-6 ratings">
+      <p><%= @area.description %></p>
+      <table class="table table-responsive" style="width:100%;">
+          <tr>
+            <td class="col-md-4" style="font-weight:bold">Local rent amount:</td>
+            <td class="col-md-2" style="text-align:right;">£<%= @area.cost %> / m</td>
+          </tr>
+          <tr>
+            <td class="col-md-4" style="font-weight:bold">TfL Zone:</td>
+            <td class="col-md-2" style="text-align:right;"><%= @area.zone %></td> 
+          </tr>
+          <tr>
+            <td class="col-md-4" style="font-weight:bold">Population:</td>
+            <td class="col-md-2" style="text-align:right;">£<%= @area.cost %> / m</td>
+          </tr>
+          <tr>
+            <td class="col-md-4" style="font-weight:bold">Travel Time:</td>
+            <td class="col-md-2" style="text-align:right;">14 mins</td> 
+          </tr>
+        </table>
+    </div>
+    
+    <div class="col-md-4 col-sm-6 ratings">
 
         <label for="progress-bar">Transport</label> <span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Time to city centre, transport options"></span>
         <div class="progress">
@@ -49,6 +68,14 @@
             <%= @area.green %>
           </div>
         </div>
+        <label for="progress-bar">Crime/Safety <span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Rating based on crime stats for <%= @area.category.name %> borough"></span></label>
+        <div class="progress">
+          <div class="progress-bar" id="rating" role="progressbar" aria-valuenow="<%= @area.category.crime %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.category.crime %>0%;">
+            <%= @area.category.crime %>
+          </div>
+        </div>
+        <a href="#">How are these ratings calculated?</a>
+
         <% if current_user.try(:admin?) %>
           <%= link_to 'Edit', edit_area_path %>
         <% else %>
