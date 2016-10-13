@@ -129,7 +129,7 @@ video {
     box-shadow: none !important;
 }
 
-.btn-filter:hover, .active {
+.btn-filter:hover, .is-checked {
 	background-color: #FF453B !important;
 	color:#FFF !important;
 	font-weight: bold !important;

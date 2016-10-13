@@ -1,134 +1,63 @@
 <div class="container" style="padding-top:50px;">
-<!--   <div class="row">
-        <div class="col-sm-4">
-          <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-            <button class="btn btn-filter" id="zone=1" onclick="updateUrl('zone=1')" style="display:inline;">Zone 1</button>
-            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;">Zone 2</button>
-            <button class="btn btn-filter" id="zone=3" onclick="updateUrl('zone=3')" style="display:inline;">Zone 3</button>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-            <button class="btn btn-filter" id="cost=814" onclick="updateUrl('cost=814')" style="display:inline;">Cheap</button>
-            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;">Affordable</button>
-            <button class="btn btn-filter" id="zone=4" onclick="updateUrl('zone=4')" style="display:inline;">Expensive</button>
-          </div>
-        </div>
-        <div class="col-sm-4">
-            <button class="btn btn-filter" id="zone=1" onclick="updateUrl('green=6')" style="display:inline;width:49.5%;">North</button>
-            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;width:49.5%;">South</button>
-        </div>
-  </div> -->
-  <div class="row">
-        <div class="col-sm-4">
-          <div class="btn-group btn-group-lg filter-button-group" role="group" aria-label="Basic example">
-            <button class="btn btn-filter" id="zone=1" onclick="updateUrl('zone=1')" style="display:inline;">Zone 1</button>
-            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;">Zone 2</button>
-            <button class="btn btn-filter" id="zone=3" onclick="updateUrl('zone=3')" style="display:inline;">Zone 3</button>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="btn-group btn-group-lg filter-button-group" role="group" aria-label="Basic example">
-            <button class="btn btn-filter" data-filter=".cheap" style="display:inline;">Cheap</button>
-            <button class="btn btn-filter" data-filter=".affordable" style="display:inline;">Affordable</button>
-            <button class="btn btn-filter" data-filter=".expensive" style="display:inline;">Expensive</button>
-          </div>
-        </div>
-        <div class="col-sm-4">
-            <button class="btn btn-filter filter-button-group" id="zone=1" onclick="updateUrl('green=6')" style="display:inline;width:49.5%;">North</button>
-            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;width:49.5%;">South</button>
-        </div>
-  </div>
-</br>
-  <div class="row">
-        <div class="col-sm-4">
-            <button class="btn btn-filter" id="zone=1" onclick="updateUrl('zone=1')" style="display:inline;width:49.5%;">Safe Area</button>
-            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;width:49.5%;">Nightlife</button>
-        </div>
-        <div class="col-sm-4">
-            <button class="btn btn-filter" id="zone=1" onclick="updateUrl('green=6')" style="display:inline;width:49.5%;">Green Spaces</button>
-            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;width:49.5%;">Food & Drink</button>
-        </div>
-        <div class="col-sm-4">
-            <button class="btn btn-filter" id="zone=1" onclick="updateUrl('green=6')" style="display:inline;width:49.5%;">East</button>
-            <button class="btn btn-filter" id="zone=2" onclick="updateUrl('zone=2')" style="display:inline;width:49.5%;">West</button>
-        </div>
-  </div>
-
-
-  <p id="notice"><%= notice %></p>
-
-    <% if @areas != 0 %>
-  </br>
-        <!-- <a class="btn btn-filter" style="float:right;width:10%;" href="http://localhost:3000">Clear</a> -->
-        <h4> <%= @areas.count %> Areas Found</h4>
-      </br>
-    <% else  %>
-        <span> No Areas Found</span>
-    <% end %>
-
-    <div class="row">
-      <% @areas.each do |area| %>
-            
-            <%= link_to area do %>
-            <div class="col-md-4 col-xs-6 grid">
-
-                <div class="area-tile grid-item <%= area.green >= 7 ? 'green' : ' ' %> <%= area.cost >= 900 ? 'expensive' : ' ' %><%= area.cost <= 600 ? 'cheap' : ' ' %>" id="diva_id" style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),rgba(0,0,0,0.55) url('<%= area.image.url %>') no-repeat center;background-size:cover;">
-                  <div class="area-inside">
-                      <div class="attr top-left">Zone <%= area.zone %></div>
-                      <div class="attr top-right">£<%= area.cost %> / m</div>
-                      <div class="attr area-title"><span class="title"><%= area.name %></span></br><span class="sub-title"><%= area.category.name %></span></div>
-                  </div>
-                </div>
+  <div class="filters">
+      <div class="row">
+            <div class="col-sm-4">
+              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="zone" role="group">
+                <button class="btn btn-filter button" data-filter=".zoneone" style="display:inline;">Zone 1</button>
+                <button class="btn btn-filter button" data-filter=".zonetwo" style="display:inline;">Zone 2</button>
+                <button class="btn btn-filter button" data-filter=".zonethree" style="display:inline;">Zone 3</button>
+              </div>
             </div>
-            <% end %>
-              
-      <% end %>
-    </div>
-
-    <!-- <table class="table table-hover table-condensed">
-        <thead>
-          <tr>
-            <th class="col-md-2"></th>
-            <th class="col-md-2">Name</th>
-            <th class="col-md-1">Region</th>
-            <th class="col-md-4">Zone</th>
-            <th class="col-md-">Cost</th>
-            <th>Description</th>
-            <th class="col-md-1">Transport</th>
-            <th class="col-md-1">Nightlife</th>
-            <th class="col-md-1">Food</th>
-            <th class="col-md-1">Green</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @areas.each do |area| %>
-            <tr>
-              <td><img src="<%= area.image.url %>" style="width:100%"></td>
-              <td><%= area.name %></td>
-              <td><%= area.region %></td>
-              <td><%= area.zone %></td>
-              <td><%= area.cost %></td>
-              <td><%= area.description %></td>
-              <td><%= area.transport %></td>
-              <td><%= area.nightlife %></td>
-              <td><%= area.food %></td>
-              <td><%= area.green %></td>
-              <td><%= link_to 'Show', area %></td>
-              <td><%= link_to 'Edit', edit_area_path(area) %></td>
-              <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table> -->
-
-<% if current_user.try(:admin?) %>
-          <%= link_to 'New Area', new_area_path %>
-        <% else %>
+            <div class="col-sm-4">
+              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="cost" role="group" aria-label="Basic example">
+                <button class="btn btn-filter button" data-filter=".cheap" style="display:inline;">Cheap</button>
+                <button class="btn btn-filter button" data-filter=".affordable" style="display:inline;">Affordable</button>
+                <button class="btn btn-filter button" data-filter=".expensive" style="display:inline;">Expensive</button>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="type" role="group" aria-label="Basic example">
+                <button class="btn btn-filter button" data-filter=".safe" style="display:inline;">Safe Area</button>
+                <button class="btn btn-filter button" data-filter=".nightlife" style="display:inline;">Good Nightlife</button>
+                <button class="btn btn-filter button" data-filter=".green" style="display:inline;">Green Spaces</button>
+              </div>
+            </div>
+      </div>
+    </br>
+      <div class="row">
+            <div class="col-sm-4">
+              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="type" role="group" aria-label="Basic example">
+                <button class="btn btn-filter button" data-filter=".safe" style="display:inline;">North</button>
+                <button class="btn btn-filter button" data-filter=".nightlife" style="display:inline;">South</button>
+              </div>
+            </div>
+      </div>
+  </br>
+  </div>
+      </br>
+      </br>
+      <div class="row grid">
           
-        <% end %>
+          <% @areas.each do |area| %>
+              <div class="col-md-4 col-sm-12 grid-item <%= area.cost >= 900 ? 'expensive' : ' ' %><%= area.cost <= 600 ? 'cheap' : ' ' %> <%= area.green >= 7 ? 'green' : ' ' %> <%= area.nightlife >= 7 ? 'nightlife' : ' ' %> <%= area.zone === 1 ? 'zoneone' : ' ' %> <%= area.zone === 2 ? 'zonetwo' : ' ' %> <%= area.zone === 3 ? 'zonethree' : ' ' %> <%= area.category.crime >= 7 ? 'safe' : ' ' %>">
+                    <%= link_to area do %>
+                    <div class="area-tile" id="diva_id" style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),rgba(0,0,0,0.55) url('<%= area.image.url %>') no-repeat center;background-size:cover;">
+                      <div class="area-inside">
+                          <div class="attr top-left">Zone <%= area.zone %></div>
+                          <div class="attr top-right">£<%= area.cost %> / m</div>
+                          <div class="attr area-title"><span class="title"><%= area.name %></span></br><span class="sub-title"><%= area.category.name %></span></div>
+                      </div>
+                    </div>
+                    <% end %>
+                </div>              
+          <% end %>
+      </div>
+
+    <% if current_user.try(:admin?) %>
+        <%= link_to 'New Area', new_area_path %>
+    <% else %>
+    <% end %>
+</div>
 
 
   
@@ -136,83 +65,115 @@
 
 // init Isotope
 var $grid = $('.grid').isotope({
-  // options
+  itemSelector: '.grid-item'
 });
-// filter items on button click
-$('.filter-button-group').on( 'click', 'button', function() {
-  var filterValue = $(this).attr('data-filter');
+
+// store filter for each group
+var filters = {};
+
+$('.filters').on( 'click', '.button', function() {
+  var $this = $(this);
+  // get group key
+  var $buttonGroup = $this.parents('.btn-group');
+  var filterGroup = $buttonGroup.attr('data-filter-group');
+  // set filter for group
+  filters[ filterGroup ] = $this.attr('data-filter');
+  // combine filters
+  var filterValue = concatValues( filters );
+  // set filter for Isotope
   $grid.isotope({ filter: filterValue });
-  console.log(filterValue);
+  // console.log(filterValue);
+  console.log( filters );
 });
 
 
-function addCat() {
-  var cat = document.getElementById("category1").value;
+$('.btn-group').each( function( i, buttonGroup ) {
+  var $buttonGroup = $( buttonGroup );
+  $buttonGroup.on( 'click', 'button', function() {
+    $buttonGroup.find('.is-checked').removeClass('is-checked');
+    $( this ).addClass('is-checked');
+  });
+});
 
-  var url = document.location.href;
 
-  document.location.href = url + "?category=" + cat;
+
+// flatten object by concatting values
+function concatValues( obj ) {
+  var value = '';
+  for ( var prop in obj ) {
+    value += obj[ prop ];
+  }
+  return value;
 }
+
+
+// function addCat() {
+//   var cat = document.getElementById("category1").value;
+
+//   var url = document.location.href;
+
+//   document.location.href = url + "?category=" + cat;
+// }
   
-</script>
+// </script>
 
 
 
-<script>
-      var url = document.location.href;
+// <script>
+//       var url = document.location.href;
       
-      function updateUrl(value){
-        //get the info we need
-        var current_url = url;
-        var has_qs = current_url.indexOf('?') != -1;
+//       function updateUrl(value){
+//         //get the info we need
+//         var current_url = url;
+//         var has_qs = current_url.indexOf('?') != -1;
         
-        if (has_qs){
-          var qs_place = current_url.indexOf('?')
-          var url_start = current_url.split("").splice(0, qs_place).join("");
-          var q_string = current_url.split("").splice(qs_place + 1, current_url.split("").length);
-          var adding = current_url.indexOf(value) == -1;
+//         if (has_qs){
+//           var qs_place = current_url.indexOf('?')
+//           var url_start = current_url.split("").splice(0, qs_place).join("");
+//           var q_string = current_url.split("").splice(qs_place + 1, current_url.split("").length);
+//           var adding = current_url.indexOf(value) == -1;
           
-          if (adding){
-            q_string = q_string.join("") + "&" + value;
-            url = url_start + "?" + q_string;
-          }
-          else{
-            //check if its the only thing in the qs
-            if (value.split("").length == q_string.length){
-              url = url_start;
-            }
-            else{
-              var v_place = q_string.join("").indexOf(value);
-              if (v_place == 0){
-                q_string = q_string.splice(value.split("").length + 1, q_string.length);
-                url = url_start + "?" + q_string.join("");
-              }
-              else{
-                var q_string_start = q_string.splice(0, v_place - 1).join("");
-                var q_string_end = q_string.splice(value.length + 1, q_string.length - value.length + 1).join("");
-                url = url_start + "?" + q_string_start + q_string_end;
-              }
-            }
-          }
-        }
-        else{
-          url = current_url + "?" + value;
-        }
+//           if (adding){
+//             q_string = q_string.join("") + "&" + value;
+//             url = url_start + "?" + q_string;
+//           }
+//           else{
+//             //check if its the only thing in the qs
+//             if (value.split("").length == q_string.length){
+//               url = url_start;
+//             }
+//             else{
+//               var v_place = q_string.join("").indexOf(value);
+//               if (v_place == 0){
+//                 q_string = q_string.splice(value.split("").length + 1, q_string.length);
+//                 url = url_start + "?" + q_string.join("");
+//               }
+//               else{
+//                 var q_string_start = q_string.splice(0, v_place - 1).join("");
+//                 var q_string_end = q_string.splice(value.length + 1, q_string.length - value.length + 1).join("");
+//                 url = url_start + "?" + q_string_start + q_string_end;
+//               }
+//             }
+//           }
+//         }
+//         else{
+//           url = current_url + "?" + value;
+//         }
         
-        document.location = url;
-        console.log(url);
-      }
+//         document.location = url;
+//         console.log(url);
+//       }
       
-      var pathArray1 = document.location.href.split('?');
-      var pathArray2 = pathArray1[1].split('&');
-      // console.log(pathArray);
-      // console.log(pathArray2);
-      for (i in pathArray2) {
-        // console.log(pathArray2[i]);
-        var selector = pathArray2[i];
-        // console.log(selector);
-        var element = document.getElementById(selector);
-        // console.log(element);
-        element.className = "btn btn-filteron active";
-      }
-    </script>
+//       var pathArray1 = document.location.href.split('?');
+//       var pathArray2 = pathArray1[1].split('&');
+//       // console.log(pathArray);
+//       // console.log(pathArray2);
+//       for (i in pathArray2) {
+//         // console.log(pathArray2[i]);
+//         var selector = pathArray2[i];
+//         // console.log(selector);
+//         var element = document.getElementById(selector);
+//         // console.log(element);
+//         element.className = "btn btn-filteron active";
+//       }
+//     </script>
