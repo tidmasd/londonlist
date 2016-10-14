@@ -49,7 +49,7 @@
       <div class="row grid">
           
           <% @areas.each do |area| %>
-              <div class="col-md-4 col-sm-12 grid-item <%= area.cost < 600 ? 'cheap' : '' %> <%= area.cost > 900 ? 'expensive' : '' %> <%= area.green >= 7 ? 'green' : ' ' %> <%= area.nightlife >= 7 ? 'nightlife' : ' ' %> <%= area.zone === 1 ? 'zoneone' : ' ' %> <%= area.zone === 2 ? 'zonetwo' : ' ' %> <%= area.zone === 3 ? 'zonethree' : ' ' %> <%= area.category.crime >= 7 ? 'safe' : ' ' %>">
+              <div class="col-md-4 col-sm-12 grid-item <%= area.cost < 600 ? 'cheap' : '' %> <%= area.cost > 900 ? 'expensive' : '' %> <%= area.green >= 7 ? 'green' : ' ' %> <%= area.nightlife >= 7 ? 'nightlife' : ' ' %> <%= area.zone === 1 ? 'zoneone' : ' ' %> <%= area.zone === 2 ? 'zonetwo' : ' ' %> <%= area.zone === 3 ? 'zonethree' : ' ' %>">
                     <%= link_to area do %>
                     <div class="area-tile" id="diva_id" style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),rgba(0,0,0,0.55) url('<%= area.image.url %>') no-repeat center;background-size:cover;">
                       <div class="area-inside">
