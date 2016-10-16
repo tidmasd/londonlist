@@ -41,10 +41,11 @@
     	.jumbotron p {
     		display:none;
     	}
-
     }
 
-
+ .grid-item {
+ 	margin-bottom:30px;
+ }
 
  #hover-content {
  	display:none;
@@ -144,7 +145,7 @@ video {
 }
 
 .btn-filter:hover, .is-checked {
-	background-color: #FF453B !important;
+	background-color: #2ecc71 !important;
 	color:#FFF !important;
 	font-weight: bold !important;
 	-webkit-box-shadow: none !important;
@@ -297,7 +298,7 @@ tr {
 .btn-filter {
 	width:25%;
 	background-color: #FFF;
-	border:1px solid #999 !important;
+	border:1px solid #cdcdcd !important;
 	text-transform: uppercase;
 	font-size:0.9em !important;
 	font-weight: bold;
@@ -351,7 +352,6 @@ tr img {
 	width:100%;
 	padding:5px;
 	text-align: center;
-	margin-bottom:40px;
 	z-index: 0;
 }
 
@@ -398,6 +398,13 @@ tr img {
 	padding:15px 30px;
 	bottom:0;
 	left:0;
+	position:absolute;
+}
+
+.bottom-right {
+	padding:15px 30px;
+	bottom:0;
+	right:0;
 	position:absolute;
 }
 

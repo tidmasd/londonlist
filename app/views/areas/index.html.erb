@@ -1,53 +1,51 @@
-<!-- <div class="container-fluid" style="padding:0;text-align:center;">
-    <div class="jumbotron" style="padding:15px 0 25px 0;">
-        <p style="font-size:1em;padding-right:15px">People moving to London could use your help <button class="btn btn-success" style="margin-left:35px">Join our London community</button></p>
-    </div>
-</div> -->
-
 <div class="container" style="padding-top:20px;">
   <div class="filters">
       <div class="row">
             <div class="col-sm-4">
-              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="zone" role="group">
-                <button class="btn btn-filter button" data-filter=".zoneone">Zone 1<span class="filter-count hidden-xs"></span></button>
-                <button class="btn btn-filter button" data-filter=".zonetwo">Zone 2<span class="filter-count hidden-xs"></span></button>
-                <button class="btn btn-filter button" data-filter=".zonethree">Zone 3<span class="filter-count hidden-xs"></span></button>
-                <button class="btn btn-filter button" data-filter=".zonefour">Zone 4<span class="filter-count hidden-xs"></span></button>
+              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="zone" role="group" data-toggle="tooltip" data-placement="bottom" title="How far do you want to travel?">
+                <button class="btn btn-filter button" data-filter=".zoneone">Zone 1</button>
+                <button class="btn btn-filter button" data-filter=".zonetwo">Zone 2</button>
+                <button class="btn btn-filter button" data-filter=".zonethree">Zone 3</button>
+                <button class="btn btn-filter button" data-filter=".zonefour">Zone 4</button>
               </div>
             </div>
     
             <div class="col-sm-4">
-              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="region" role="group" aria-label="Basic example">
-                <button class="btn btn-filter button" data-filter=".north" style="display:inline;">North <span class="filter-count hidden-xs"></button>
-                <button class="btn btn-filter button" data-filter=".south" style="display:inline;">South <span class="filter-count hidden-xs"></button>
-                <button class="btn btn-filter button" data-filter=".east" style="display:inline;">East <span class="filter-count hidden-xs"></button>
-                <button class="btn btn-filter button" data-filter=".west" style="display:inline;">West <span class="filter-count hidden-xs"></button>
+              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="region" role="group" data-toggle="tooltip" data-placement="bottom" title="Where in London do you want to live?">
+                <button class="btn btn-filter button" data-filter=".north" style="display:inline;">North</button>
+                <button class="btn btn-filter button" data-filter=".south" style="display:inline;">South</button>
+                <button class="btn btn-filter button" data-filter=".east" style="display:inline;">East</button>
+                <button class="btn btn-filter button" data-filter=".west" style="display:inline;">West</button>
               </div>
             </div>
 
             <div class="col-sm-4">
-              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="cost" role="group" aria-label="Basic example">
-                <button class="btn btn-filter button" data-filter=".cheap" style="display:inline;">£<span class="filter-count hidden-xs"></button>
-                <button class="btn btn-filter button" data-filter=".affordable" style="display:inline;">££<span class="filter-count hidden-xs"></button>
-                <button class="btn btn-filter button" data-filter=".expensive" style="display:inline;">£££<span class="filter-count hidden-xs"></button>
-                <button class="btn btn-filter button" data-filter=".expensive" style="display:inline;">££££<span class="filter-count hidden-xs"></button>
+              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="cost" role="group" data-toggle="tooltip" data-placement="bottom" title="How much do you want to pay?">
+                <button class="btn btn-filter button" data-filter=".cheap" style="display:inline;">£</button>
+                <button class="btn btn-filter button" data-filter=".affordable" style="display:inline;">££</button>
+                <button class="btn btn-filter button" data-filter=".expensive" style="display:inline;">£££</button>
+                <button class="btn btn-filter button" data-filter=".expensive" style="display:inline;">££££</button>
               </div>
             </div>
       </div>
-      
+
       <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-12">
               <div class="btn-group btn-group-lg filter-button-group" data-filter-group="type" role="group" aria-label="Basic example">
                 <button class="btn btn-filter button" data-filter="" style="display:inline;">All</button>
-                <button class="btn btn-filter button" data-filter=".safe" style="display:inline;">Safe <span class="filter-count hidden-xs"></button>
-                <button class="btn btn-filter button" data-filter=".nightlife" style="display:inline;">Night<span class="filter-count hidden-xs"></button>
-                <button class="btn btn-filter button" data-filter=".green" style="display:inline;">Food<span class="filter-count hidden-xs"></button> 
+                <button class="btn btn-filter button" data-filter=".safe" style="display:inline;">Safe<span class="filter-count hidden-xs"></span></button>
+                <button class="btn btn-filter button" data-filter=".nightlife" style="display:inline;">dance<span class="filter-count hidden-xs"></span></button>
+                <button class="btn btn-filter button" data-filter=".green" style="display:inline;">eat<span class="filter-count hidden-xs"></span></button> 
               </div>
         </div>
-        <div class="col-sm-4">
-                <button class="btn btn-filter button" data-filter="" style="display:inline;float:right">Clear all</button>
-        </div>
-            
+<!--         <div class="col-sm-6">
+              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="type" role="group" aria-label="Basic example">
+                <button class="btn btn-filter button" data-filter="" style="display:inline;">All</button>
+                <button class="btn btn-filter button" data-filter=".safe" style="display:inline;">Safe</button>
+                <button class="btn btn-filter button" data-filter=".nightlife" style="display:inline;">Night</button>
+                <button class="btn btn-filter button" data-filter=".green" style="display:inline;">Food</button> 
+              </div>
+        </div> -->
       </div>
   </br>
   </div>
@@ -62,6 +60,8 @@
                       <div class="area-inside">
                           <div class="attr top-left">Zone <%= area.zone %></div>
                           <div class="attr top-right">£<%= area.cost %> / m</div>
+                          <div class="attr bottom-left"><%= area.region %></div>
+                          <div class="attr bottom-right">14 mins</div>
                           <div class="attr area-title"><span class="title"><%= area.name %></span></br><span class="sub-title"><%= area.category.name %></span></div>
                       </div>
                     </div>
@@ -79,6 +79,10 @@
 
   
 <script type="text/javascript">
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
 
 // init Isotope
 var $grid = $('.grid').isotope({
