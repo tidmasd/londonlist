@@ -1,34 +1,22 @@
-<div class="container" style="padding-top:50px;">
+<!-- <div class="container-fluid" style="padding:0;text-align:center;">
+    <div class="jumbotron" style="padding:15px 0 25px 0;">
+        <p style="font-size:1em;padding-right:15px">People moving to London could use your help <button class="btn btn-success" style="margin-left:35px">Join our London community</button></p>
+    </div>
+</div> -->
+
+<div class="container" style="padding-top:20px;">
   <div class="filters">
       <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <div class="btn-group btn-group-lg filter-button-group" data-filter-group="zone" role="group">
-                <button class="btn btn-filter" data-filter="" style="display:inline;">Any Zone </button>
-                <button class="btn btn-filter button" data-filter=".zoneone">Zone 1 <span class="filter-count hidden-xs"></span></button>
-                <button class="btn btn-filter button" data-filter=".zonetwo">Zone 2 <span class="filter-count hidden-xs"></span></button>
-                <button class="btn btn-filter button" data-filter=".zonethree">Zone 3 <span class="filter-count hidden-xs"></span></button>
+                <button class="btn btn-filter button" data-filter=".zoneone">Zone 1<span class="filter-count hidden-xs"></span></button>
+                <button class="btn btn-filter button" data-filter=".zonetwo">Zone 2<span class="filter-count hidden-xs"></span></button>
+                <button class="btn btn-filter button" data-filter=".zonethree">Zone 3<span class="filter-count hidden-xs"></span></button>
+                <button class="btn btn-filter button" data-filter=".zonefour">Zone 4<span class="filter-count hidden-xs"></span></button>
               </div>
             </div>
-            <div class="col-sm-6">
-              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="cost" role="group" aria-label="Basic example">
-                <button class="btn btn-filter button" data-filter="" style="display:inline;">Any Cost </button>
-                <button class="btn btn-filter button" data-filter=".cheap" style="display:inline;">Cheap <span class="filter-count hidden-xs"></button>
-                <button class="btn btn-filter button" data-filter=".affordable" style="display:inline;">Ok <span class="filter-count hidden-xs"></button>
-                <button class="btn btn-filter button" data-filter=".expensive" style="display:inline;">Expensive <span class="filter-count hidden-xs"></button>
-              </div>
-            </div>
-      </div>
-    </br>
-      <div class="row">
-        <div class="col-sm-6">
-              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="type" role="group" aria-label="Basic example">
-                <button class="btn btn-filter button" data-filter="" style="display:inline;">All</button>
-                <button class="btn btn-filter button" data-filter=".safe" style="display:inline;">Safe <span class="filter-count hidden-xs"></button>
-                <button class="btn btn-filter button" data-filter=".nightlife" style="display:inline;">Night<span class="filter-count hidden-xs"></button>
-                <button class="btn btn-filter button" data-filter=".green" style="display:inline;">Food<span class="filter-count hidden-xs"></button> 
-              </div>
-            </div>
-            <div class="col-sm-6">
+    
+            <div class="col-sm-4">
               <div class="btn-group btn-group-lg filter-button-group" data-filter-group="region" role="group" aria-label="Basic example">
                 <button class="btn btn-filter button" data-filter=".north" style="display:inline;">North <span class="filter-count hidden-xs"></button>
                 <button class="btn btn-filter button" data-filter=".south" style="display:inline;">South <span class="filter-count hidden-xs"></button>
@@ -36,11 +24,30 @@
                 <button class="btn btn-filter button" data-filter=".west" style="display:inline;">West <span class="filter-count hidden-xs"></button>
               </div>
             </div>
+
+            <div class="col-sm-4">
+              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="cost" role="group" aria-label="Basic example">
+                <button class="btn btn-filter button" data-filter=".cheap" style="display:inline;">£<span class="filter-count hidden-xs"></button>
+                <button class="btn btn-filter button" data-filter=".affordable" style="display:inline;">££<span class="filter-count hidden-xs"></button>
+                <button class="btn btn-filter button" data-filter=".expensive" style="display:inline;">£££<span class="filter-count hidden-xs"></button>
+                <button class="btn btn-filter button" data-filter=".expensive" style="display:inline;">££££<span class="filter-count hidden-xs"></button>
+              </div>
+            </div>
       </div>
+      
       <div class="row">
-          <div class="col-md-12">
-              <p><input type="text" class="form-control" id="quicksearch" placeholder="Search" /></p>
-          </div>
+        <div class="col-sm-8">
+              <div class="btn-group btn-group-lg filter-button-group" data-filter-group="type" role="group" aria-label="Basic example">
+                <button class="btn btn-filter button" data-filter="" style="display:inline;">All</button>
+                <button class="btn btn-filter button" data-filter=".safe" style="display:inline;">Safe <span class="filter-count hidden-xs"></button>
+                <button class="btn btn-filter button" data-filter=".nightlife" style="display:inline;">Night<span class="filter-count hidden-xs"></button>
+                <button class="btn btn-filter button" data-filter=".green" style="display:inline;">Food<span class="filter-count hidden-xs"></button> 
+              </div>
+        </div>
+        <div class="col-sm-4">
+                <button class="btn btn-filter button" data-filter="" style="display:inline;float:right">Clear all</button>
+        </div>
+            
       </div>
   </br>
   </div>
@@ -101,7 +108,6 @@ $('.filters').on( 'click', '.button', function() {
   console.log( filters );
 });
 
-
 $('.btn-group').each( function( i, buttonGroup ) {
   var $buttonGroup = $( buttonGroup );
   $buttonGroup.on( 'click', 'button', function() {
@@ -126,7 +132,6 @@ function updateFilterCounts()  {
   });
 }
 
-
 // flatten object by concatting values
 function concatValues( obj ) {
   var value = '';
@@ -136,74 +141,4 @@ function concatValues( obj ) {
   return value;
 }
 
-
-// function addCat() {
-//   var cat = document.getElementById("category1").value;
-
-//   var url = document.location.href;
-
-//   document.location.href = url + "?category=" + cat;
-// }
-  
-// </script>
-
-
-
-// <script>
-//       var url = document.location.href;
-      
-//       function updateUrl(value){
-//         //get the info we need
-//         var current_url = url;
-//         var has_qs = current_url.indexOf('?') != -1;
-        
-//         if (has_qs){
-//           var qs_place = current_url.indexOf('?')
-//           var url_start = current_url.split("").splice(0, qs_place).join("");
-//           var q_string = current_url.split("").splice(qs_place + 1, current_url.split("").length);
-//           var adding = current_url.indexOf(value) == -1;
-          
-//           if (adding){
-//             q_string = q_string.join("") + "&" + value;
-//             url = url_start + "?" + q_string;
-//           }
-//           else{
-//             //check if its the only thing in the qs
-//             if (value.split("").length == q_string.length){
-//               url = url_start;
-//             }
-//             else{
-//               var v_place = q_string.join("").indexOf(value);
-//               if (v_place == 0){
-//                 q_string = q_string.splice(value.split("").length + 1, q_string.length);
-//                 url = url_start + "?" + q_string.join("");
-//               }
-//               else{
-//                 var q_string_start = q_string.splice(0, v_place - 1).join("");
-//                 var q_string_end = q_string.splice(value.length + 1, q_string.length - value.length + 1).join("");
-//                 url = url_start + "?" + q_string_start + q_string_end;
-//               }
-//             }
-//           }
-//         }
-//         else{
-//           url = current_url + "?" + value;
-//         }
-        
-//         document.location = url;
-//         console.log(url);
-//       }
-      
-//       var pathArray1 = document.location.href.split('?');
-//       var pathArray2 = pathArray1[1].split('&');
-//       // console.log(pathArray);
-//       // console.log(pathArray2);
-//       for (i in pathArray2) {
-//         // console.log(pathArray2[i]);
-//         var selector = pathArray2[i];
-//         // console.log(selector);
-//         var element = document.getElementById(selector);
-//         // console.log(element);
-//         element.className = "btn btn-filteron active";
-//       }
-//     </script>
+</script>

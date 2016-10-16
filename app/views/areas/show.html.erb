@@ -21,79 +21,64 @@
     <div class="col-md-8 col-sm-6">
       <p><%= @area.description %></p>
       <table class="table table-responsive" style="width:100%;">
-          <tr>
-            <td class="col-md-4" style="font-weight:bold">Local rent amount:</td>
-            <td class="col-md-2" style="text-align:right;">£<%= @area.cost %> / m</td>
-          </tr>
-          <tr>
-            <td class="col-md-4" style="font-weight:bold">TfL Zone:</td>
-            <td class="col-md-2" style="text-align:right;"><%= @area.zone %></td> 
-          </tr>
-          <tr>
-            <td class="col-md-4" style="font-weight:bold">Population:</td>
-            <td class="col-md-2" style="text-align:right;">£<%= @area.cost %> / m</td>
-          </tr>
-          <tr>
-            <td class="col-md-4" style="font-weight:bold">Travel Time:</td>
-            <td class="col-md-2" style="text-align:right;">14 mins</td> 
-          </tr>
-        </table>
+        <tr>
+          <td class="col-md-4" style="font-weight:bold">Local rent amount:</td>
+          <td class="col-md-2" style="text-align:right;">£<%= @area.cost %> / m</td>
+        </tr>
+        <tr>
+          <td class="col-md-4" style="font-weight:bold">TfL Zone:</td>
+          <td class="col-md-2" style="text-align:right;"><%= @area.zone %></td> 
+        </tr>
+        <tr>
+          <td class="col-md-4" style="font-weight:bold">Travel Time:</td>
+          <td class="col-md-2" style="text-align:right;">14 mins</td> 
+        </tr>
+      </table>
     </div>
     
     <div class="col-md-4 col-sm-6 ratings">
 
-        <label for="progress-bar">Transport</label> <span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Time to city centre, transport options"></span>
-        <div class="progress">
-          <div class="progress-bar" id="rating" role="progressbar" aria-valuenow="<%= @area.transport %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.transport %>0%;">
-            <%= @area.transport %>
-          </div>
+      <label for="progress-bar">Transport</label> <span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Time to city centre, transport options"></span>
+      <div class="progress">
+        <div class="progress-bar" id="rating" role="progressbar" aria-valuenow="<%= @area.transport %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.transport %>0%;">
+          <%= @area.transport %>
         </div>
-
-        <label for="progress-bar">Nightlife <span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Quality of nightlife, different scenes and number of venues"></span></label>
-        <div class="progress">
-          <div class="progress-bar" id="rating" role="progressbar" aria-valuenow="<%= @area.nightlife %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.nightlife %>0%;">
-            <%= @area.nightlife %>
-          </div>
-        </div>
-
-        <label for="progress-bar">Food & Drink <span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Tooltip on right"></span></label>
-        <div class="progress">
-          <div class="progress-bar" id="rating" role="progressbar" aria-valuenow="<%= @area.food %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.food %>0%;">
-            <%= @area.food %>
-          </div>
-        </div>
-        <label for="progress-bar">Green Spaces <span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Tooltip on right"></span></label>
-        <div class="progress">
-          <div class="progress-bar" id="rating" role="progressbar" aria-valuenow="<%= @area.green %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.green %>0%;">
-            <%= @area.green %>
-          </div>
-        </div>
-        <label for="progress-bar">Crime/Safety <span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Rating based on crime stats for <%= @area.category.name %> borough"></span></label>
-        <div class="progress">
-          <div class="progress-bar" id="rating" role="progressbar" aria-valuenow="<%= @area.category.crime %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.category.crime %>0%;">
-            <%= @area.category.crime %>
-          </div>
-        </div>
-        <a href="#">How are these ratings calculated?</a>
-
-        <% if current_user.try(:admin?) %>
-          <%= link_to 'Edit', edit_area_path %>
-        <% else %>
-          
-        <% end %>
       </div>
-    </div>
-    <div class="row">
-    </br>
-        <div class="col-md-12" style="text-align:center;">
-          <hr>
-          <h2>On the map</h2>
-          <p style="width:60%;margin:auto;">Battersea is within LB of Wandsworth and bordered by Wandsworth, Nine Elms, City of Westminster, RB of Kensington and Chelsea, LB of Hammersmith & Fulham, Parsons Green, and Upper Tooting</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19888.721507805698!2d-0.11265431273542191!3d51.456500537248104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760475c265a9a5%3A0x9ffb74a7e00cc74!2sHerne+Hill%2C+London!5e0!3m2!1sen!2suk!4v1476458295042" width="80%" height="350"  style="margin:auto;" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+      <label for="progress-bar">Nightlife <span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Quality of nightlife, different scenes and number of venues"></span></label>
+      <div class="progress">
+        <div class="progress-bar" id="rating" role="progressbar" aria-valuenow="<%= @area.nightlife %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.nightlife %>0%;">
+          <%= @area.nightlife %>
         </div>
+      </div>
+
+      <label for="progress-bar">Food & Drink <span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Tooltip on right"></span></label>
+      <div class="progress">
+        <div class="progress-bar" id="rating" role="progressbar" aria-valuenow="<%= @area.food %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.food %>0%;">
+          <%= @area.food %>
+        </div>
+      </div>
+      <label for="progress-bar">Green Spaces <span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Tooltip on right"></span></label>
+      <div class="progress">
+        <div class="progress-bar" id="rating" role="progressbar" aria-valuenow="<%= @area.green %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.green %>0%;">
+          <%= @area.green %>
+        </div>
+      </div>
+      <label for="progress-bar">Crime/Safety <span class="glyphicon glyphicon-info-sign" aria-hidden="true" data-toggle="tooltip" data-placement="right" title="Rating based on crime stats for <%= @area.category.name %> borough"></span></label>
+      <div class="progress">
+        <div class="progress-bar" id="rating" role="progressbar" aria-valuenow="<%= @area.category.crime %>" aria-valuemin="0" aria-valuemax="10" style="width:<%= @area.category.crime %>0%;">
+          <%= @area.category.crime %>
+        </div>
+      </div>
+      <a href="#">How are these ratings calculated?</a>
+
+      <% if current_user.try(:admin?) %>
+      <%= link_to 'Edit', edit_area_path %>
+      <% else %>
+      
+      <% end %>
     </div>
   </div>
-</div>
 </div>
 
 <script type="text/javascript">
