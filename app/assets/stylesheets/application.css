@@ -251,7 +251,8 @@ tr {
 }
 
 .btn-group {
-	width:100%;
+	width:100% !important;
+	margin-bottom:5px;
 }
 
 .filter-count {
@@ -261,7 +262,7 @@ tr {
 }
 
 .btn-filter {
- 	width:25%;
+	width:25%;
 	background-color: #FFF;
 	border:1px solid #999 !important;
 	text-transform: uppercase;
